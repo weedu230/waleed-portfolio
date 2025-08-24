@@ -120,21 +120,15 @@ const Portfolio = () => {
                       {project.description}
                     </p>
                     
-                    <div className="flex gap-3">
-                      <Button 
-                        size="sm"
-                        className={`bg-${project.color} hover:bg-${project.color}/90 text-white border-0 flex-1`}
-                      >
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        View Live
-                      </Button>
+                    <div className="flex justify-end">
                       <Button 
                         size="sm"
                         variant="outline"
                         className={`border-${project.color}/30 text-${project.color} hover:bg-${project.color}/10`}
                         onClick={() => window.open(project.githubUrl, '_blank')}
                       >
-                        <Github className="w-4 h-4" />
+                        <Github className="w-4 h-4 mr-2" />
+                        GitHub
                       </Button>
                     </div>
                   </div>
