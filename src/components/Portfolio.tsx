@@ -8,7 +8,8 @@ import {
   Bot, 
   Palette, 
   Globe, 
-  MessageSquare 
+  MessageSquare,
+  Hospital
 } from 'lucide-react';
 
 const Portfolio = () => {
@@ -19,7 +20,8 @@ const Portfolio = () => {
       tech: "JavaScript",
       description: "A browser-based arcade game replicating the classic Flappy Bird mechanics with smooth animations and responsive controls.",
       color: "brand-sky",
-      category: "Game Development"
+      category: "Game Development",
+      githubUrl: "https://github.com/weedu230/flappy-bird-clone"
     },
     {
       title: "GPA Calculator",
@@ -27,7 +29,8 @@ const Portfolio = () => {
       tech: "HTML",
       description: "A simple web tool to calculate GPA with ease and accuracy, featuring an intuitive interface and real-time calculations.",
       color: "brand-orange",
-      category: "Web Application"
+      category: "Web Application",
+      githubUrl: "https://github.com/weedu230/gpa-calculator"
     },
     {
       title: "Jarvis AI Assistant",
@@ -35,7 +38,8 @@ const Portfolio = () => {
       tech: "Python",
       description: "A personal AI assistant inspired by Iron Man, with voice recognition and automation features for daily tasks.",
       color: "brand-sky",
-      category: "AI & Automation"
+      category: "AI & Automation",
+      githubUrl: "https://github.com/weedu230/jarvis-ai-assistant"
     },
     {
       title: "Paint Application",
@@ -43,7 +47,8 @@ const Portfolio = () => {
       tech: "C#",
       description: "A desktop drawing tool with freehand sketching, color picker, and adjustable brush sizes for digital art creation.",
       color: "brand-orange",
-      category: "Desktop Application"
+      category: "Desktop Application",
+      githubUrl: "https://github.com/weedu230/paint-application"
     },
     {
       title: "Restaurant Website",
@@ -51,7 +56,8 @@ const Portfolio = () => {
       tech: "HTML",
       description: "A responsive restaurant website showcasing menus and services with a modern UI and seamless user experience.",
       color: "brand-sky",
-      category: "Web Design"
+      category: "Web Design",
+      githubUrl: "https://github.com/weedu230/restaurant-website"
     },
     {
       title: "NeoAura Chatbot",
@@ -59,7 +65,17 @@ const Portfolio = () => {
       tech: "Java",
       description: "An AI-driven chatbot management system to enhance user interaction and automation with intelligent responses.",
       color: "brand-orange",
-      category: "AI & Backend"
+      category: "AI & Backend",
+      githubUrl: "https://github.com/weedu230/neoaura-chatbot"
+    },
+    {
+      title: "Hospital Management System",
+      icon: Hospital,
+      tech: "Java + MySQL",
+      description: "A comprehensive hospital management system with patient records, appointment scheduling, and staff management features.",
+      color: "brand-sky",
+      category: "Enterprise Application",
+      githubUrl: "https://github.com/weedu230/hospital-management-system"
     }
   ];
 
@@ -116,6 +132,7 @@ const Portfolio = () => {
                         size="sm"
                         variant="outline"
                         className={`border-${project.color}/30 text-${project.color} hover:bg-${project.color}/10`}
+                        onClick={() => window.open(project.githubUrl, '_blank')}
                       >
                         <Github className="w-4 h-4" />
                       </Button>
