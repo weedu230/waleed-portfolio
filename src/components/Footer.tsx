@@ -68,7 +68,7 @@ const Footer = () => {
             variant="outline"
             size="sm"
             onClick={scrollToTop}
-            className="border-primary-foreground/20 text-primary-foreground/80 hover:bg-primary-foreground/10"
+            className="border-primary-foreground/20 text-brand-orange hover:bg-primary-foreground/10"
           >
             <ArrowUp className="w-4 h-4 mr-2" />
             Back to Top
