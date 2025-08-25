@@ -16,10 +16,10 @@ const Hero = () => {
       <div className="absolute bottom-20 right-10 w-24 h-24 border-2 border-brand-orange rounded-full animate-float opacity-20" style={{ animationDelay: '2s' }}></div>
       <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-brand-sky-light rounded-full animate-float opacity-10" style={{ animationDelay: '4s' }}></div>
       
-      <div className="container mx-auto px-6 text-center relative z-10">
+      <div className="container mx-auto px-6 text-center relative z-10 pt-24">
         <div className="animate-fade-in">
           {/* Profile Image */}
-          <div className="mb-8 relative inline-block">
+          <div className="mb-8 relative inline-block mt-8">
             <div className="w-64 h-64 mx-auto rounded-full overflow-hidden border-4 border-brand-sky shadow-lg">
               <img 
                 src="/lovable-uploads/a5d69f6a-52c6-4140-987e-29f338b484be.png" 
