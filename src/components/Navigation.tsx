@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
+import { downloadCV } from '@/utils/cvGenerator';
+import { useToast } from '@/hooks/use-toast';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { toast } = useToast();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,6 +19,22 @@ const Navigation = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleDownloadCV = async () => {
+    try {
+      await downloadCV();
+      toast({
+        title: "CV Downloaded",
+        description: "Your CV has been downloaded successfully!",
+      });
+    } catch (error) {
+      toast({
+        title: "Download Failed", 
+        description: "There was an error downloading the CV. Please try again.",
+        variant: "destructive",
+      });
     }
   };
 
@@ -73,7 +92,7 @@ const Navigation = () => {
           <Button 
             variant="outline" 
             className="border-brand-sky text-brand-sky hover:bg-brand-sky hover:text-white transition-all"
-            onClick={() => window.open('mailto:mwaleed256@gmail.com')}
+            onClick={handleDownloadCV}
           >
             Download CV
           </Button>
