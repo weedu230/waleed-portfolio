@@ -56,37 +56,37 @@ const Navigation = () => {
           <div className="hidden md:flex items-center space-x-8">
             <button
               onClick={() => scrollToSection('home')}
-              className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 rounded-md px-3 py-2"
+              className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 dark:border-brand-orange/50 dark:hover:border-brand-orange rounded-md px-3 py-2"
             >
               Home
             </button>
             <button
               onClick={() => scrollToSection('about')}
-              className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 rounded-md px-3 py-2"
+              className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 dark:border-brand-orange/50 dark:hover:border-brand-orange rounded-md px-3 py-2"
             >
               About
             </button>
             <button
               onClick={() => scrollToSection('skills')}
-              className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 rounded-md px-3 py-2"
+              className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 dark:border-brand-orange/50 dark:hover:border-brand-orange rounded-md px-3 py-2"
             >
               Skills
             </button>
             <button
               onClick={() => scrollToSection('services')}
-              className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 rounded-md px-3 py-2"
+              className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 dark:border-brand-orange/50 dark:hover:border-brand-orange rounded-md px-3 py-2"
             >
               Services
             </button>
             <button
               onClick={() => scrollToSection('portfolio')}
-              className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 rounded-md px-3 py-2"
+              className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 dark:border-brand-orange/50 dark:hover:border-brand-orange rounded-md px-3 py-2"
             >
               Portfolio
             </button>
             <button
               onClick={() => scrollToSection('contact')}
-              className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 rounded-md px-3 py-2"
+              className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 dark:border-brand-orange/50 dark:hover:border-brand-orange rounded-md px-3 py-2"
             >
               Contact
             </button>
@@ -120,37 +120,37 @@ const Navigation = () => {
             <div className="flex flex-col space-y-2 pt-4">
               <button
                 onClick={() => { scrollToSection('home'); setIsMobileMenuOpen(false); }}
-                className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 rounded-md px-3 py-2 text-left"
+                className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 dark:border-brand-orange/50 dark:hover:border-brand-orange rounded-md px-3 py-2 text-left"
               >
                 Home
               </button>
               <button
                 onClick={() => { scrollToSection('about'); setIsMobileMenuOpen(false); }}
-                className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 rounded-md px-3 py-2 text-left"
+                className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 dark:border-brand-orange/50 dark:hover:border-brand-orange rounded-md px-3 py-2 text-left"
               >
                 About
               </button>
               <button
                 onClick={() => { scrollToSection('skills'); setIsMobileMenuOpen(false); }}
-                className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 rounded-md px-3 py-2 text-left"
+                className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 dark:border-brand-orange/50 dark:hover:border-brand-orange rounded-md px-3 py-2 text-left"
               >
                 Skills
               </button>
               <button
                 onClick={() => { scrollToSection('services'); setIsMobileMenuOpen(false); }}
-                className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 rounded-md px-3 py-2 text-left"
+                className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 dark:border-brand-orange/50 dark:hover:border-brand-orange rounded-md px-3 py-2 text-left"
               >
                 Services
               </button>
               <button
                 onClick={() => { scrollToSection('portfolio'); setIsMobileMenuOpen(false); }}
-                className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 rounded-md px-3 py-2 text-left"
+                className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 dark:border-brand-orange/50 dark:hover:border-brand-orange rounded-md px-3 py-2 text-left"
               >
                 Portfolio
               </button>
               <button
                 onClick={() => { scrollToSection('contact'); setIsMobileMenuOpen(false); }}
-                className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 rounded-md px-3 py-2 text-left"
+                className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 dark:border-brand-orange/50 dark:hover:border-brand-orange rounded-md px-3 py-2 text-left"
               >
                 Contact
               </button>
