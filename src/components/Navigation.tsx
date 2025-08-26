@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
+import { ThemeToggle } from '@/components/ThemeToggle';
 import { downloadCV } from '@/utils/cvGenerator';
 import { useToast } from '@/hooks/use-toast';
+import { Menu, X } from 'lucide-react';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -89,14 +92,78 @@ const Navigation = () => {
             </button>
           </div>
 
-          <Button 
-            variant="outline" 
-            className="border-brand-sky text-brand-sky hover:bg-brand-sky hover:text-white transition-all"
-            onClick={handleDownloadCV}
-          >
-            Download CV
-          </Button>
+          <div className="flex items-center space-x-4">
+            <ThemeToggle />
+            <Button 
+              variant="outline" 
+              className="border-brand-sky text-brand-sky hover:bg-brand-sky hover:text-white transition-all hidden md:block"
+              onClick={handleDownloadCV}
+            >
+              Download CV
+            </Button>
+            
+            {/* Mobile menu button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </Button>
+          </div>
         </div>
+
+        {/* Mobile menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden mt-4 pb-4 border-t border-border">
+            <div className="flex flex-col space-y-2 pt-4">
+              <button
+                onClick={() => { scrollToSection('home'); setIsMobileMenuOpen(false); }}
+                className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 rounded-md px-3 py-2 text-left"
+              >
+                Home
+              </button>
+              <button
+                onClick={() => { scrollToSection('about'); setIsMobileMenuOpen(false); }}
+                className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 rounded-md px-3 py-2 text-left"
+              >
+                About
+              </button>
+              <button
+                onClick={() => { scrollToSection('skills'); setIsMobileMenuOpen(false); }}
+                className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 rounded-md px-3 py-2 text-left"
+              >
+                Skills
+              </button>
+              <button
+                onClick={() => { scrollToSection('services'); setIsMobileMenuOpen(false); }}
+                className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 rounded-md px-3 py-2 text-left"
+              >
+                Services
+              </button>
+              <button
+                onClick={() => { scrollToSection('portfolio'); setIsMobileMenuOpen(false); }}
+                className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 rounded-md px-3 py-2 text-left"
+              >
+                Portfolio
+              </button>
+              <button
+                onClick={() => { scrollToSection('contact'); setIsMobileMenuOpen(false); }}
+                className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 rounded-md px-3 py-2 text-left"
+              >
+                Contact
+              </button>
+              <Button 
+                variant="outline" 
+                className="border-brand-sky text-brand-sky hover:bg-brand-sky hover:text-white transition-all mt-2"
+                onClick={() => { handleDownloadCV(); setIsMobileMenuOpen(false); }}
+              >
+                Download CV
+              </Button>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );
