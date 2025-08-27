@@ -7,8 +7,10 @@ import {
   Cog,
   ArrowRight
 } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const Services = () => {
+  const [ref, isVisible] = useScrollAnimation(0.2);
   const services = [
     {
       icon: Code,
@@ -48,9 +50,9 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="py-20 bg-secondary/20">
+    <section id="services" className="py-20 bg-secondary/20" ref={ref}>
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-8'}`}>
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">Services</h2>
           <div className="w-24 h-1 bg-brand-sky mx-auto rounded-full"></div>
           <p className="text-muted-foreground mt-6 max-w-2xl mx-auto">
@@ -62,7 +64,7 @@ const Services = () => {
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
-              <Card key={index} className="portfolio-card group">
+              <Card key={index} className={`portfolio-card group transition-all duration-700 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-8'}`} style={{ animationDelay: `${index * 150 + 200}ms` }}>
                 <CardContent className="p-8">
                   <div className="flex items-center mb-6">
                     <div className={`w-16 h-16 bg-${service.color}/10 rounded-full flex items-center justify-center mr-4 skill-icon`}>

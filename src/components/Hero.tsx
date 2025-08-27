@@ -20,7 +20,7 @@ const Hero = () => {
         <div className="animate-fade-in">
           {/* Profile Image */}
           <div className="mb-8 relative inline-block mt-8">
-            <div className="w-64 h-64 mx-auto rounded-full overflow-hidden border-4 border-brand-sky shadow-lg">
+            <div className="w-64 h-64 mx-auto rounded-full overflow-hidden border-4 border-brand-sky shadow-lg animate-profile-float">
               <img 
                 src="/lovable-uploads/a5d69f6a-52c6-4140-987e-29f338b484be.png" 
                 alt="Muhammad Waleed Ahmed (Weedu)" 

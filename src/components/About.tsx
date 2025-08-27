@@ -1,18 +1,21 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { GraduationCap, User } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const About = () => {
+  const [ref, isVisible] = useScrollAnimation(0.2);
+
   return (
-    <section id="about" className="py-20 bg-secondary/20">
+    <section id="about" className="py-20 bg-secondary/20" ref={ref}>
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-8'}`}>
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">About Me</h2>
           <div className="w-24 h-1 bg-brand-sky mx-auto rounded-full"></div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Bio Section */}
-          <Card className="portfolio-card">
+          <Card className={`portfolio-card transition-all duration-700 delay-200 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-8'}`}>
             <CardContent className="p-8">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-brand-sky/10 rounded-full flex items-center justify-center mr-4">
@@ -30,7 +33,7 @@ const About = () => {
           </Card>
 
           {/* Education Section */}
-          <Card className="portfolio-card">
+          <Card className={`portfolio-card transition-all duration-700 delay-300 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-8'}`}>
             <CardContent className="p-8">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-brand-orange/10 rounded-full flex items-center justify-center mr-4">

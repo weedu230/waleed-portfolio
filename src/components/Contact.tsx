@@ -12,8 +12,10 @@ import {
   Send, 
   MapPin 
 } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const Contact = () => {
+  const [ref, isVisible] = useScrollAnimation(0.2);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -82,9 +84,9 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-secondary/20">
+    <section id="contact" className="py-20 bg-secondary/20" ref={ref}>
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-8'}`}>
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">Get In Touch</h2>
           <div className="w-24 h-1 bg-brand-sky mx-auto rounded-full"></div>
           <p className="text-muted-foreground mt-6 max-w-2xl mx-auto">
@@ -94,7 +96,7 @@ const Contact = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Information */}
-          <div className="space-y-8">
+          <div className={`space-y-8 transition-all duration-700 delay-200 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-8'}`}>
             <div>
               <h3 className="text-2xl font-bold text-primary mb-6">Contact Information</h3>
               <div className="space-y-4">
@@ -139,7 +141,7 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <Card className="portfolio-card">
+          <Card className={`portfolio-card transition-all duration-700 delay-300 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-8'}`}>
             <CardContent className="p-8">
               <h3 className="text-2xl font-bold text-primary mb-6">Send a Message</h3>
               <form onSubmit={handleSubmit} className="space-y-6">

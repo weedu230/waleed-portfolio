@@ -7,8 +7,10 @@ import {
   FileText,
   Database
 } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const Skills = () => {
+  const [ref, isVisible] = useScrollAnimation(0.2);
   const skillCategories = [
     {
       title: "Programming Languages",
@@ -49,9 +51,9 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-20">
+    <section id="skills" className="py-20" ref={ref}>
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-8'}`}>
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">Skills & Expertise</h2>
           <div className="w-24 h-1 bg-brand-orange mx-auto rounded-full"></div>
           <p className="text-muted-foreground mt-6 max-w-2xl mx-auto">
@@ -63,7 +65,7 @@ const Skills = () => {
           {skillCategories.map((category, index) => {
             const IconComponent = category.icon;
             return (
-              <Card key={index} className="portfolio-card group">
+              <Card key={index} className={`portfolio-card group transition-all duration-700 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-8'}`} style={{ animationDelay: `${index * 100 + 200}ms` }}>
                 <CardContent className="p-6">
                   <div className="flex items-center mb-4">
                     <div className={`w-12 h-12 bg-${category.color}/10 rounded-full flex items-center justify-center mr-4 skill-icon`}>

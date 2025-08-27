@@ -11,8 +11,10 @@ import {
   MessageSquare,
   Hospital
 } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const Portfolio = () => {
+  const [ref, isVisible] = useScrollAnimation(0.2);
   const projects = [
     {
       title: "Flappy Bird Clone",
@@ -80,9 +82,9 @@ const Portfolio = () => {
   ];
 
   return (
-    <section id="portfolio" className="py-20">
+    <section id="portfolio" className="py-20" ref={ref}>
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-8'}`}>
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">Portfolio</h2>
           <div className="w-24 h-1 bg-brand-orange mx-auto rounded-full"></div>
           <p className="text-muted-foreground mt-6 max-w-2xl mx-auto">
@@ -94,7 +96,7 @@ const Portfolio = () => {
           {projects.map((project, index) => {
             const IconComponent = project.icon;
             return (
-              <Card key={index} className="portfolio-card group overflow-hidden">
+              <Card key={index} className={`portfolio-card group overflow-hidden transition-all duration-700 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-8'}`} style={{ animationDelay: `${index * 100 + 200}ms` }}>
                 <CardContent className="p-0">
                   {/* Project Header */}
                   <div className={`bg-${project.color}/5 p-6 border-b border-${project.color}/10`}>
