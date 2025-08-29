@@ -65,10 +65,10 @@ const Skills = () => {
           {skillCategories.map((category, index) => {
             const IconComponent = category.icon;
             return (
-              <Card key={index} className={`portfolio-card group transition-all duration-700 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-8'}`} style={{ animationDelay: `${index * 100 + 200}ms` }}>
+              <Card key={index} className={`portfolio-card hover-lift group transition-all duration-700 ${isVisible ? 'animate-bounce-in' : 'opacity-0 translate-y-8'}`} style={{ animationDelay: `${index * 100 + 200}ms` }}>
                 <CardContent className="p-6">
                   <div className="flex items-center mb-4">
-                    <div className={`w-12 h-12 bg-${category.color}/10 rounded-full flex items-center justify-center mr-4 skill-icon`}>
+                    <div className={`w-12 h-12 bg-${category.color}/10 rounded-full flex items-center justify-center mr-4 skill-icon micro-bounce`}>
                       <IconComponent className={`w-6 h-6 text-${category.color}`} />
                     </div>
                     <h3 className="text-xl font-bold text-primary">{category.title}</h3>
@@ -77,7 +77,8 @@ const Skills = () => {
                     {category.skills.map((skill, skillIndex) => (
                       <span
                         key={skillIndex}
-                        className={`px-3 py-1 text-sm bg-${category.color}/10 text-${category.color} rounded-full border border-${category.color}/20 transition-all hover:bg-${category.color}/20`}
+                        className={`px-3 py-1 text-sm bg-${category.color}/10 text-${category.color} rounded-full border border-${category.color}/20 transition-all hover:bg-${category.color}/20 hover-lift`}
+                        style={{ animationDelay: `${(index * 100 + skillIndex * 50 + 400)}ms` }}
                       >
                         {skill}
                       </span>

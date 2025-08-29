@@ -96,15 +96,15 @@ const Portfolio = () => {
           {projects.map((project, index) => {
             const IconComponent = project.icon;
             return (
-              <Card key={index} className={`portfolio-card group overflow-hidden transition-all duration-700 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-8'}`} style={{ animationDelay: `${index * 100 + 200}ms` }}>
+              <Card key={index} className={`portfolio-card hover-lift group overflow-hidden transition-all duration-700 ${isVisible ? 'animate-bounce-in' : 'opacity-0 translate-y-8'}`} style={{ animationDelay: `${index * 100 + 200}ms` }}>
                 <CardContent className="p-0">
                   {/* Project Header */}
-                  <div className={`bg-${project.color}/5 p-6 border-b border-${project.color}/10`}>
+                  <div className={`bg-${project.color}/5 p-6 border-b border-${project.color}/10 group-hover:bg-${project.color}/10 transition-colors duration-300`}>
                     <div className="flex items-center justify-between mb-4">
-                      <div className={`w-12 h-12 bg-${project.color}/10 rounded-full flex items-center justify-center skill-icon`}>
+                      <div className={`w-12 h-12 bg-${project.color}/10 rounded-full flex items-center justify-center skill-icon micro-bounce hover-glow`}>
                         <IconComponent className={`w-6 h-6 text-${project.color}`} />
                       </div>
-                      <span className={`text-xs px-3 py-1 bg-${project.color}/10 text-${project.color} rounded-full border border-${project.color}/20`}>
+                      <span className={`text-xs px-3 py-1 bg-${project.color}/10 text-${project.color} rounded-full border border-${project.color}/20 hover-lift`}>
                         {project.category}
                       </span>
                     </div>
@@ -126,11 +126,12 @@ const Portfolio = () => {
                       <Button 
                         size="sm"
                         variant="outline"
-                        className={`border-${project.color}/30 text-${project.color} hover:bg-${project.color}/10`}
+                        className={`border-${project.color}/30 text-${project.color} hover:bg-${project.color}/10 hover-lift micro-bounce relative overflow-hidden group`}
                         onClick={() => window.open(project.githubUrl, '_blank')}
                       >
-                        <Github className="w-4 h-4 mr-2" />
-                        GitHub
+                        <Github className="w-4 h-4 mr-2 relative z-10" />
+                        <span className="relative z-10">GitHub</span>
+                        <div className={`absolute inset-0 bg-gradient-to-r from-${project.color}/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
                       </Button>
                     </div>
                   </div>
@@ -147,13 +148,14 @@ const Portfolio = () => {
           </p>
           <Button 
             size="lg"
-            className="bg-brand-sky hover:bg-brand-sky/90 text-white px-8 py-3"
+            className="bg-brand-sky hover:bg-brand-sky/90 text-white px-8 py-3 hover-lift animate-glow relative overflow-hidden group"
             onClick={() => {
               const element = document.getElementById('contact');
               if (element) element.scrollIntoView({ behavior: 'smooth' });
             }}
           >
-            Start a Project
+            <span className="relative z-10">Start a Project</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-brand-sky to-brand-orange opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </Button>
         </div>
       </div>

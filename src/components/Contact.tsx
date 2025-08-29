@@ -96,7 +96,7 @@ const Contact = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Information */}
-          <div className={`space-y-8 transition-all duration-700 delay-200 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-8'}`}>
+          <div className={`space-y-8 transition-all duration-700 delay-200 ${isVisible ? 'animate-slide-in-left' : 'opacity-0 translate-y-8'}`}>
             <div>
               <h3 className="text-2xl font-bold text-primary mb-6">Contact Information</h3>
               <div className="space-y-4">
@@ -106,15 +106,16 @@ const Contact = () => {
                     <a
                       key={index}
                       href={item.link}
-                      className="flex items-center p-4 portfolio-card rounded-lg transition-all hover:translate-x-2"
+                      className="flex items-center p-4 portfolio-card rounded-lg transition-all hover-lift hover:translate-x-2 micro-bounce group"
                       target={item.link.startsWith('http') ? '_blank' : undefined}
                       rel={item.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      style={{ animationDelay: `${index * 100 + 400}ms` }}
                     >
-                      <div className={`w-12 h-12 bg-${item.color}/10 rounded-full flex items-center justify-center mr-4`}>
+                      <div className={`w-12 h-12 bg-${item.color}/10 rounded-full flex items-center justify-center mr-4 group-hover:bg-${item.color}/20 transition-colors`}>
                         <IconComponent className={`w-6 h-6 text-${item.color}`} />
                       </div>
                       <div>
-                        <p className="font-medium text-primary">{item.label}</p>
+                        <p className="font-medium text-primary group-hover:text-brand-sky transition-colors">{item.label}</p>
                         <p className="text-muted-foreground">{item.value}</p>
                       </div>
                     </a>
@@ -124,10 +125,10 @@ const Contact = () => {
             </div>
 
             {/* Location */}
-            <Card className="portfolio-card">
+            <Card className="portfolio-card hover-lift animate-pulse-glow">
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-brand-sky/10 rounded-full flex items-center justify-center mr-4">
+                  <div className="w-12 h-12 bg-brand-sky/10 rounded-full flex items-center justify-center mr-4 micro-bounce">
                     <MapPin className="w-6 h-6 text-brand-sky" />
                   </div>
                   <h4 className="text-xl font-bold text-primary">Location</h4>
@@ -141,21 +142,21 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <Card className={`portfolio-card transition-all duration-700 delay-300 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-8'}`}>
+          <Card className={`portfolio-card hover-lift transition-all duration-700 delay-300 ${isVisible ? 'animate-slide-in-right' : 'opacity-0 translate-y-8'}`}>
             <CardContent className="p-8">
               <h3 className="text-2xl font-bold text-primary mb-6">Send a Message</h3>
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
+                <div className="animate-fade-up" style={{ animationDelay: '0.6s' }}>
                   <Input
                     name="name"
                     placeholder="Your Name"
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="border-muted-foreground/20 focus:border-brand-sky transition-colors"
+                    className="border-muted-foreground/20 focus:border-brand-sky transition-all hover-lift"
                   />
                 </div>
-                <div>
+                <div className="animate-fade-up" style={{ animationDelay: '0.7s' }}>
                   <Input
                     name="email"
                     type="email"
@@ -163,10 +164,10 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="border-muted-foreground/20 focus:border-brand-sky transition-colors"
+                    className="border-muted-foreground/20 focus:border-brand-sky transition-all hover-lift"
                   />
                 </div>
-                <div>
+                <div className="animate-fade-up" style={{ animationDelay: '0.8s' }}>
                   <Textarea
                     name="message"
                     placeholder="Your Message"
@@ -174,17 +175,20 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    className="border-muted-foreground/20 focus:border-brand-sky transition-colors resize-none"
+                    className="border-muted-foreground/20 focus:border-brand-sky transition-all resize-none hover-lift"
                   />
                 </div>
-                <Button 
-                  type="submit"
-                  size="lg"
-                  className="w-full bg-brand-sky hover:bg-brand-sky/90 text-white"
-                >
-                  <Send className="w-5 h-5 mr-2" />
-                  Send Message
-                </Button>
+                <div className="animate-fade-up" style={{ animationDelay: '0.9s' }}>
+                  <Button 
+                    type="submit"
+                    size="lg"
+                    className="w-full bg-brand-sky hover:bg-brand-sky/90 text-white hover-lift animate-glow relative overflow-hidden group"
+                  >
+                    <Send className="w-5 h-5 mr-2 relative z-10" />
+                    <span className="relative z-10">Send Message</span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-brand-sky to-brand-orange opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </Button>
+                </div>
               </form>
             </CardContent>
           </Card>
