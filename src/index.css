@@ -49,11 +49,9 @@
     --shadow-card: 0 4px 6px -1px hsl(var(--brand-sky) / 0.1), 0 2px 4px -1px hsl(var(--brand-sky) / 0.06);
     --shadow-hover: 0 10px 15px -3px hsl(var(--brand-sky) / 0.2), 0 4px 6px -2px hsl(var(--brand-sky) / 0.1);
 
-  /* Animations */
-  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  --transition-spring: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  --transition-elastic: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --radius: 0.5rem;
 
@@ -107,7 +105,7 @@
   
   .portfolio-card:hover {
     box-shadow: var(--shadow-hover);
-    transform: translateY(-8px) scale(1.02);
+    transform: translateY(-2px);
   }
   
   .skill-icon {
@@ -168,146 +166,6 @@
   @keyframes profileFloat {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-8px); }
-  }
-
-  /* Advanced animations */
-  .animate-glow {
-    animation: glow 2s ease-in-out infinite alternate;
-  }
-
-  @keyframes glow {
-    from { box-shadow: 0 0 20px hsl(var(--brand-sky) / 0.5); }
-    to { box-shadow: 0 0 30px hsl(var(--brand-sky) / 0.8), 0 0 40px hsl(var(--brand-orange) / 0.3); }
-  }
-
-  .animate-zoom-in {
-    animation: zoomIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-    opacity: 0;
-    transform: scale(0.8);
-  }
-
-  @keyframes zoomIn {
-    to { opacity: 1; transform: scale(1); }
-  }
-
-  .animate-bounce-in {
-    animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
-    opacity: 0;
-    transform: scale(0.3);
-  }
-
-  @keyframes bounceIn {
-    to { opacity: 1; transform: scale(1); }
-  }
-
-  .animate-skill-bar {
-    animation: skillBar 1.5s ease-out forwards;
-    transform: scaleX(0);
-    transform-origin: left;
-  }
-
-  @keyframes skillBar {
-    to { transform: scaleX(1); }
-  }
-
-  .hover-lift {
-    transition: var(--transition-spring);
-  }
-
-  .hover-lift:hover {
-    transform: translateY(-4px) scale(1.05);
-    box-shadow: 0 10px 25px hsl(var(--brand-sky) / 0.2);
-  }
-
-  .hover-glow {
-    transition: var(--transition-smooth);
-  }
-
-  .hover-glow:hover {
-    box-shadow: 0 0 20px hsl(var(--brand-sky) / 0.4);
-    transform: scale(1.05);
-  }
-
-  .text-gradient {
-    background: linear-gradient(135deg, hsl(var(--brand-sky)), hsl(var(--brand-orange)));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .animate-typing {
-    overflow: hidden;
-    border-right: 2px solid hsl(var(--brand-sky));
-    white-space: nowrap;
-    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
-  }
-
-  @keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
-  }
-
-  @keyframes blink-caret {
-    from, to { border-color: transparent; }
-    50% { border-color: hsl(var(--brand-sky)); }
-  }
-
-  .animate-gradient {
-    background-size: 200% 200%;
-    animation: gradientShift 4s ease infinite;
-  }
-
-  @keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  .micro-bounce {
-    transition: var(--transition-bounce);
-  }
-
-  .micro-bounce:hover {
-    animation: microBounce 0.6s ease;
-  }
-
-  @keyframes microBounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-8px); }
-    60% { transform: translateY(-4px); }
-  }
-
-  .animate-slide-in-left {
-    animation: slideInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-
-  @keyframes slideInLeft {
-    to { opacity: 1; transform: translateX(0); }
-  }
-
-  .animate-slide-in-right {
-    animation: slideInRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-    opacity: 0;
-    transform: translateX(50px);
-  }
-
-  @keyframes slideInRight {
-    to { opacity: 1; transform: translateX(0); }
-  }
-
-  .animate-pulse-glow {
-    animation: pulseGlow 2s ease-in-out infinite;
-  }
-
-  @keyframes pulseGlow {
-    0%, 100% { 
-      box-shadow: 0 0 5px hsl(var(--brand-sky) / 0.3);
-    }
-    50% { 
-      box-shadow: 0 0 20px hsl(var(--brand-sky) / 0.6), 0 0 30px hsl(var(--brand-orange) / 0.2);
-    }
   }
 }
 

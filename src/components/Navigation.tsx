@@ -53,45 +53,39 @@ const Navigation = () => {
           <div className="hidden md:flex items-center space-x-8">
             <button
               onClick={() => scrollToSection('home')}
-              className="text-foreground hover:text-brand-sky transition-all duration-300 border border-transparent hover:border-brand-sky/30 dark:border-brand-orange/50 dark:hover:border-brand-orange rounded-md px-3 py-2 relative overflow-hidden group hover-lift"
+              className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 dark:border-brand-orange/50 dark:hover:border-brand-orange rounded-md px-3 py-2"
             >
-              <span className="relative z-10">Home</span>
-              <div className="absolute bottom-0 left-0 w-full h-0.5 bg-brand-sky transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+              Home
             </button>
             <button
               onClick={() => scrollToSection('about')}
-              className="text-foreground hover:text-brand-sky transition-all duration-300 border border-transparent hover:border-brand-sky/30 dark:border-brand-orange/50 dark:hover:border-brand-orange rounded-md px-3 py-2 relative overflow-hidden group hover-lift"
+              className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 dark:border-brand-orange/50 dark:hover:border-brand-orange rounded-md px-3 py-2"
             >
-              <span className="relative z-10">About</span>
-              <div className="absolute bottom-0 left-0 w-full h-0.5 bg-brand-sky transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+              About
             </button>
             <button
               onClick={() => scrollToSection('skills')}
-              className="text-foreground hover:text-brand-sky transition-all duration-300 border border-transparent hover:border-brand-sky/30 dark:border-brand-orange/50 dark:hover:border-brand-orange rounded-md px-3 py-2 relative overflow-hidden group hover-lift"
+              className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 dark:border-brand-orange/50 dark:hover:border-brand-orange rounded-md px-3 py-2"
             >
-              <span className="relative z-10">Skills</span>
-              <div className="absolute bottom-0 left-0 w-full h-0.5 bg-brand-sky transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+              Skills
             </button>
             <button
               onClick={() => scrollToSection('services')}
-              className="text-foreground hover:text-brand-sky transition-all duration-300 border border-transparent hover:border-brand-sky/30 dark:border-brand-orange/50 dark:hover:border-brand-orange rounded-md px-3 py-2 relative overflow-hidden group hover-lift"
+              className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 dark:border-brand-orange/50 dark:hover:border-brand-orange rounded-md px-3 py-2"
             >
-              <span className="relative z-10">Services</span>
-              <div className="absolute bottom-0 left-0 w-full h-0.5 bg-brand-sky transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+              Services
             </button>
             <button
               onClick={() => scrollToSection('portfolio')}
-              className="text-foreground hover:text-brand-sky transition-all duration-300 border border-transparent hover:border-brand-sky/30 dark:border-brand-orange/50 dark:hover:border-brand-orange rounded-md px-3 py-2 relative overflow-hidden group hover-lift"
+              className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 dark:border-brand-orange/50 dark:hover:border-brand-orange rounded-md px-3 py-2"
             >
-              <span className="relative z-10">Portfolio</span>
-              <div className="absolute bottom-0 left-0 w-full h-0.5 bg-brand-sky transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+              Portfolio
             </button>
             <button
               onClick={() => scrollToSection('contact')}
-              className="text-foreground hover:text-brand-sky transition-all duration-300 border border-transparent hover:border-brand-sky/30 dark:border-brand-orange/50 dark:hover:border-brand-orange rounded-md px-3 py-2 relative overflow-hidden group hover-lift"
+              className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 dark:border-brand-orange/50 dark:hover:border-brand-orange rounded-md px-3 py-2"
             >
-              <span className="relative z-10">Contact</span>
-              <div className="absolute bottom-0 left-0 w-full h-0.5 bg-brand-sky transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+              Contact
             </button>
           </div>
 
@@ -99,7 +93,7 @@ const Navigation = () => {
             <ThemeToggle />
             <Button 
               variant="outline" 
-              className="border-brand-sky text-brand-sky hover:bg-brand-sky hover:text-white transition-all hidden md:block hover-lift micro-bounce"
+              className="border-brand-sky text-brand-sky hover:bg-brand-sky hover:text-white transition-all hidden md:block"
               onClick={handleDownloadCV}
             >
               Download CV

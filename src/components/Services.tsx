@@ -64,10 +64,10 @@ const Services = () => {
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
-              <Card key={index} className={`portfolio-card hover-lift group transition-all duration-700 ${isVisible ? 'animate-zoom-in' : 'opacity-0 translate-y-8'}`} style={{ animationDelay: `${index * 150 + 200}ms` }}>
+              <Card key={index} className={`portfolio-card group transition-all duration-700 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-8'}`} style={{ animationDelay: `${index * 150 + 200}ms` }}>
                 <CardContent className="p-8">
                   <div className="flex items-center mb-6">
-                    <div className={`w-16 h-16 bg-${service.color}/10 rounded-full flex items-center justify-center mr-4 skill-icon micro-bounce`}>
+                    <div className={`w-16 h-16 bg-${service.color}/10 rounded-full flex items-center justify-center mr-4 skill-icon`}>
                       <IconComponent className={`w-8 h-8 text-${service.color}`} />
                     </div>
                     <h3 className="text-2xl font-bold text-primary">{service.title}</h3>
@@ -91,12 +91,11 @@ const Services = () => {
                   
                   <Button 
                     variant="outline" 
-                    className={`border-${service.color} text-${service.color} hover:bg-${service.color} hover:text-white group-hover:translate-x-1 transition-all hover-lift micro-bounce relative overflow-hidden group`}
+                    className={`border-${service.color} text-${service.color} hover:bg-${service.color} hover:text-white group-hover:translate-x-1 transition-all`}
                     onClick={scrollToContact}
                   >
-                    <span className="relative z-10">Get Started</span>
-                    <ArrowRight className="w-4 h-4 ml-2 relative z-10" />
-                    <div className={`absolute inset-0 bg-gradient-to-r from-${service.color} to-brand-orange opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+                    Get Started
+                    <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </CardContent>
               </Card>
