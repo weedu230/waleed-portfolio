@@ -26,8 +26,8 @@ const Hero = () => {
       <AnimatedBackground />
       
       {/* Floating Geometric Elements */}
-      <div className="absolute top-20 left-10 w-32 h-32 border-2 border-brand-sky rounded-full animate-float opacity-20 animate-pulse-glow"></div>
-      <div className="absolute bottom-20 right-10 w-24 h-24 border-2 border-brand-orange rounded-full animate-float opacity-20 animate-glow" style={{ animationDelay: '2s' }}></div>
+      <div className="absolute top-20 left-10 w-32 h-32 border-2 border-brand-sky rounded-full animate-float opacity-20"></div>
+      <div className="absolute bottom-20 right-10 w-24 h-24 border-2 border-brand-orange rounded-full animate-float opacity-20" style={{ animationDelay: '2s' }}></div>
       <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-brand-sky-light rounded-full animate-float opacity-10" style={{ animationDelay: '4s' }}></div>
       <div className="absolute top-1/3 right-1/4 w-20 h-20 bg-gradient-to-r from-brand-sky to-brand-orange rounded-full animate-float opacity-20" style={{ animationDelay: '6s' }}></div>
       
@@ -40,23 +40,27 @@ const Hero = () => {
                 src="/lovable-uploads/a5d69f6a-52c6-4140-987e-29f338b484be.png" 
                 alt="Muhammad Waleed Ahmed (Weedu)" 
                 className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                onError={(e) => {
+                  console.log('Image failed to load:', e.currentTarget.src);
+                  e.currentTarget.src = heroPortrait; // Fallback to imported image
+                }}
               />
             </div>
-            <div className="absolute -bottom-2 -right-2 w-16 h-16 bg-brand-orange rounded-full flex items-center justify-center text-white text-2xl font-bold micro-bounce animate-pulse-glow">
+            <div className="absolute -bottom-2 -right-2 w-16 h-16 bg-brand-orange rounded-full flex items-center justify-center text-white text-2xl font-bold animate-bounce">
               W
             </div>
           </div>
 
           {/* Name and Title */}
-          <h1 className="text-5xl md:text-7xl font-bold text-primary mb-4 animate-slide-up">
-            <span className="block animate-slide-in-left">Muhammad Waleed Ahmed</span>
-            <span className="text-3xl md:text-4xl text-gradient block mt-2 animate-slide-in-right" style={{ animationDelay: '0.3s' }}>(Weedu)</span>
+          <h1 className="text-5xl md:text-7xl font-bold text-primary mb-4">
+            <span className="block animate-fade-in">Muhammad Waleed Ahmed</span>
+            <span className="text-3xl md:text-4xl text-gradient block mt-2 animate-fade-in" style={{ animationDelay: '0.3s' }}>(Weedu)</span>
           </h1>
           
           <div className="text-xl md:text-2xl text-muted-foreground mb-8 h-16 flex items-center justify-center">
-            <span className="animate-bounce-in" style={{ animationDelay: '0.6s' }}>
+            <span className="animate-fade-in" style={{ animationDelay: '0.6s' }}>
               {animatedSubtitle}
-              <span className="animate-pulse text-brand-sky">|</span>
+              <span className="animate-pulse text-brand-sky ml-1">|</span>
             </span>
           </div>
           
@@ -76,23 +80,21 @@ const Hero = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up" style={{ animationDelay: '1.2s' }}>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{ animationDelay: '1.2s' }}>
             <Button 
               size="lg"
-              className="bg-brand-sky hover:bg-brand-sky/90 text-white border-0 px-8 py-3 text-lg hover-lift animate-glow group relative overflow-hidden"
+              className="bg-brand-sky hover:bg-brand-sky/90 text-white border-0 px-8 py-3 text-lg transition-all hover:scale-105"
               onClick={() => scrollToSection('portfolio')}
             >
-              <span className="relative z-10">View Portfolio</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-brand-sky to-brand-orange opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              View Portfolio
             </Button>
             <Button 
               size="lg"
               variant="outline"
-              className="border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-white px-8 py-3 text-lg hover-lift micro-bounce relative overflow-hidden group"
+              className="border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-white px-8 py-3 text-lg transition-all hover:scale-105"
               onClick={() => scrollToSection('contact')}
             >
-              <span className="relative z-10">Contact Me</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-brand-orange to-brand-sky opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              Contact Me
             </Button>
           </div>
         </div>
