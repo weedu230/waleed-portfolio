@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import heroPortrait from '@/assets/weedu-portrait.jpg';
+import ParticleBackground from './ParticleBackground';
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
@@ -11,10 +12,13 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen portfolio-hero flex items-center justify-center relative overflow-hidden">
+      {/* Particle Background */}
+      <ParticleBackground />
+      
       {/* Animated Background Elements */}
-      <div className="absolute top-20 left-10 w-32 h-32 border-2 border-brand-sky rounded-full animate-float opacity-20"></div>
-      <div className="absolute bottom-20 right-10 w-24 h-24 border-2 border-brand-orange rounded-full animate-float opacity-20" style={{ animationDelay: '2s' }}></div>
-      <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-brand-sky-light rounded-full animate-float opacity-10" style={{ animationDelay: '4s' }}></div>
+      <div className="absolute top-20 left-10 w-32 h-32 border-2 border-brand-sky rounded-full animate-float opacity-20 hover-glow"></div>
+      <div className="absolute bottom-20 right-10 w-24 h-24 border-2 border-brand-orange rounded-full animate-float opacity-20 hover-glow" style={{ animationDelay: '2s' }}></div>
+      <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-brand-sky-light rounded-full animate-float opacity-10 hover-pulse" style={{ animationDelay: '4s' }}></div>
       
       <div className="container mx-auto px-6 text-center relative z-10 pt-24">
         <div className="animate-fade-in">
@@ -35,7 +39,7 @@ const Hero = () => {
           {/* Name and Title */}
           <h1 className="text-5xl md:text-7xl font-bold text-primary mb-4">
             <span className="block">Muhammad Waleed Ahmed</span>
-            <span className="text-3xl md:text-4xl text-brand-sky block mt-2">(Weedu)</span>
+            <span className="text-3xl md:text-4xl text-gradient block mt-2 typing-animation">(Weedu)</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-8">
@@ -44,24 +48,24 @@ const Hero = () => {
           
           {/* Animated Role Text */}
           <div className="mb-12">
-            <div className="flex flex-wrap justify-center gap-4 text-lg">
-              <span className="px-4 py-2 bg-brand-sky/10 text-brand-sky rounded-full border border-brand-sky/20 animate-slide-in">
+            <div className="flex flex-wrap justify-center gap-4 text-lg stagger-children">
+              <span className="px-4 py-2 bg-brand-sky/10 text-brand-sky rounded-full border border-brand-sky/20 hover-lift cursor-default">
                 Software Developer
               </span>
-              <span className="px-4 py-2 bg-brand-orange/10 text-brand-orange rounded-full border border-brand-orange/20 animate-slide-in" style={{ animationDelay: '0.2s' }}>
+              <span className="px-4 py-2 bg-brand-orange/10 text-brand-orange rounded-full border border-brand-orange/20 hover-lift cursor-default">
                 Creative Coder
               </span>
-              <span className="px-4 py-2 bg-brand-sky/10 text-brand-sky rounded-full border border-brand-sky/20 animate-slide-in" style={{ animationDelay: '0.4s' }}>
+              <span className="px-4 py-2 bg-brand-sky/10 text-brand-sky rounded-full border border-brand-sky/20 hover-lift cursor-default">
                 Problem Solver
               </span>
             </div>
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center stagger-children">
             <Button 
               size="lg"
-              className="bg-brand-sky hover:bg-brand-sky/90 text-white border-0 px-8 py-3 text-lg"
+              className="bg-brand-sky hover:bg-brand-sky/90 text-white border-0 px-8 py-3 text-lg hover-glow transform transition-all duration-300 hover:scale-105"
               onClick={() => scrollToSection('portfolio')}
             >
               View Portfolio
@@ -69,7 +73,7 @@ const Hero = () => {
             <Button 
               size="lg"
               variant="outline"
-              className="border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-white px-8 py-3 text-lg transition-all"
+              className="border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-white px-8 py-3 text-lg hover-lift link-underline"
               onClick={() => scrollToSection('contact')}
             >
               Contact Me

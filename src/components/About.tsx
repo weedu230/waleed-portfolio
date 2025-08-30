@@ -15,11 +15,11 @@ const About = () => {
 
         <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Bio Section */}
-          <Card className={`portfolio-card transition-all duration-700 delay-200 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-8'}`}>
+          <Card className={`portfolio-card hover-lift transition-all duration-700 delay-200 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-8'}`}>
             <CardContent className="p-8">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-brand-sky/10 rounded-full flex items-center justify-center mr-4">
-                  <User className="w-6 h-6 text-brand-sky" />
+                <div className="w-12 h-12 bg-brand-sky/10 rounded-full flex items-center justify-center mr-4 hover-pulse">
+                  <User className="w-6 h-6 text-brand-sky skill-icon" />
                 </div>
                 <h3 className="text-2xl font-bold text-primary">Personal Bio</h3>
               </div>
@@ -33,11 +33,11 @@ const About = () => {
           </Card>
 
           {/* Education Section */}
-          <Card className={`portfolio-card transition-all duration-700 delay-300 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-8'}`}>
+          <Card className={`portfolio-card hover-lift transition-all duration-700 delay-300 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-8'}`}>
             <CardContent className="p-8">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-brand-orange/10 rounded-full flex items-center justify-center mr-4">
-                  <GraduationCap className="w-6 h-6 text-brand-orange" />
+                <div className="w-12 h-12 bg-brand-orange/10 rounded-full flex items-center justify-center mr-4 hover-pulse">
+                  <GraduationCap className="w-6 h-6 text-brand-orange skill-icon" />
                 </div>
                 <h3 className="text-2xl font-bold text-primary">Education</h3>
               </div>

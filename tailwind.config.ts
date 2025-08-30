@@ -94,7 +94,16 @@ export default {
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 6s ease-in-out infinite',
+				'fade-in': 'fadeIn 0.6s ease-out forwards',
+				'slide-in': 'slideIn 0.8s ease-out forwards',
+				'slide-up': 'slideUp 0.8s ease-out forwards',
+				'profile-float': 'profileFloat 3s ease-in-out infinite',
+				'bounce-in': 'bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards',
+				'skill-bar': 'skillBarFill 2s ease-out forwards',
+				'pulse-glow': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+				'stagger': 'staggerIn 0.6s ease forwards'
 			}
 		}
 	},

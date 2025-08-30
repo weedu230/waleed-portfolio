@@ -64,11 +64,11 @@ const Services = () => {
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
-              <Card key={index} className={`portfolio-card group transition-all duration-700 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-8'}`} style={{ animationDelay: `${index * 150 + 200}ms` }}>
+              <Card key={index} className={`portfolio-card group hover-lift transition-all duration-700 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-8'}`} style={{ animationDelay: `${index * 150 + 200}ms` }}>
                 <CardContent className="p-8">
                   <div className="flex items-center mb-6">
-                    <div className={`w-16 h-16 bg-${service.color}/10 rounded-full flex items-center justify-center mr-4 skill-icon`}>
-                      <IconComponent className={`w-8 h-8 text-${service.color}`} />
+                    <div className={`w-16 h-16 bg-${service.color}/10 rounded-full flex items-center justify-center mr-4 skill-icon hover-glow`}>
+                      <IconComponent className={`w-8 h-8 text-${service.color} bounce-in`} />
                     </div>
                     <h3 className="text-2xl font-bold text-primary">{service.title}</h3>
                   </div>
@@ -91,11 +91,11 @@ const Services = () => {
                   
                   <Button 
                     variant="outline" 
-                    className={`border-${service.color} text-${service.color} hover:bg-${service.color} hover:text-white group-hover:translate-x-1 transition-all`}
+                    className={`border-${service.color} text-${service.color} hover:bg-${service.color} hover:text-white group-hover:translate-x-1 transition-all hover-glow`}
                     onClick={scrollToContact}
                   >
                     Get Started
-                    <ArrowRight className="w-4 h-4 ml-2" />
+                    <ArrowRight className="w-4 h-4 ml-2 skill-icon" />
                   </Button>
                 </CardContent>
               </Card>
