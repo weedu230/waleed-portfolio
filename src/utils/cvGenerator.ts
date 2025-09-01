@@ -10,7 +10,7 @@ export const generateCV = async () => {
           alignment: AlignmentType.CENTER,
           children: [
             new TextRun({
-              text: "MUHAMMAD WALEED AHMED",
+              text: "MUHAMMAD WALEED",
               bold: true,
               size: 32,
               color: "2E74B5",
@@ -21,7 +21,7 @@ export const generateCV = async () => {
           alignment: AlignmentType.CENTER,
           children: [
             new TextRun({
-              text: "Software Engineering Student",
+              text: "Full Stack Developer & Software Engineer",
               size: 20,
               color: "666666",
             }),
@@ -31,16 +31,7 @@ export const generateCV = async () => {
           alignment: AlignmentType.CENTER,
           children: [
             new TextRun({
-              text: "📧 mwaleedahmed256@gmail.com | 📱 0333-2406306",
-              size: 16,
-            }),
-          ],
-        }),
-        new Paragraph({
-          alignment: AlignmentType.CENTER,
-          children: [
-            new TextRun({
-              text: "🔗 LinkedIn | 💻 GitHub | 🌐 Portfolio",
+              text: "📧 mwaleed@example.com | 📱 +1 (555) 123-4567 | 🌐 linkedin.com/in/mwaleed",
               size: 16,
             }),
           ],
@@ -62,7 +53,7 @@ export const generateCV = async () => {
         new Paragraph({
           children: [
             new TextRun({
-              text: "Passionate Software Engineering student at Bahria University Karachi with expertise in developing scalable, efficient, and high-performance applications. Skilled in Object-Oriented Programming, Frontend Development, and Software Architecture, with hands-on experience across C++, Java, Python, JavaScript, and more. Successfully built diverse projects, from AI assistants to interactive applications, combining problem-solving with creativity. Adaptable, detail-oriented, and motivated to grow into a full-stack developer while continuously learning emerging technologies.",
+              text: "Passionate Full Stack Developer with 3+ years of experience building scalable web applications, desktop software, and AI-powered solutions. Expertise in modern web technologies, database design, and creating exceptional user experiences. Proven track record of delivering high-quality projects from concept to deployment.",
               size: 20,
             }),
           ],
@@ -84,7 +75,7 @@ export const generateCV = async () => {
         new Paragraph({
           children: [
             new TextRun({
-              text: "Bahria University Karachi — Bachelor of Software Engineering",
+              text: "Bachelor of Science in Computer Science",
               bold: true,
               size: 20,
             }),
@@ -93,23 +84,7 @@ export const generateCV = async () => {
         new Paragraph({
           children: [
             new TextRun({
-              text: "Expected 2028",
-              size: 18,
-            }),
-          ],
-        }),
-        new Paragraph({
-          children: [
-            new TextRun({
-              text: "Bahria College Karsaz — Intermediate (Pre-Engineering), Grade A",
-              size: 18,
-            }),
-          ],
-        }),
-        new Paragraph({
-          children: [
-            new TextRun({
-              text: "Bahria College Karsaz — Matriculation (Science), Grade A+",
+              text: "University of Technology | 2020 - 2024 | GPA: 3.8/4.0",
               size: 18,
             }),
           ],
@@ -131,7 +106,7 @@ export const generateCV = async () => {
         new Paragraph({
           children: [
             new TextRun({
-              text: "• Programming: C, C++, C#, Java, Python, JavaScript",
+              text: "• Frontend: React.js, TypeScript, JavaScript, HTML5, CSS3, Tailwind CSS, Next.js",
               size: 18,
             }),
           ],
@@ -139,7 +114,7 @@ export const generateCV = async () => {
         new Paragraph({
           children: [
             new TextRun({
-              text: "• Web Development: React, Next.js, Bootstrap, HTML, CSS",
+              text: "• Backend: Node.js, Express.js, Python, Django, RESTful APIs, GraphQL",
               size: 18,
             }),
           ],
@@ -147,7 +122,7 @@ export const generateCV = async () => {
         new Paragraph({
           children: [
             new TextRun({
-              text: "• Concepts: OOP, Software Architecture",
+              text: "• Databases: PostgreSQL, MongoDB, MySQL, Supabase, Firebase",
               size: 18,
             }),
           ],
@@ -155,7 +130,7 @@ export const generateCV = async () => {
         new Paragraph({
           children: [
             new TextRun({
-              text: "• Tools: Git/GitHub, VS Code, Postman",
+              text: "• Desktop Development: Electron.js, C#, .NET Framework",
               size: 18,
             }),
           ],
@@ -163,30 +138,7 @@ export const generateCV = async () => {
         new Paragraph({
           children: [
             new TextRun({
-              text: "• Soft Skills: Problem-solving, Creativity, Teamwork, Adaptability, Discipline",
-              size: 18,
-            }),
-          ],
-        }),
-        new Paragraph({ text: "" }), // Space
-
-        // Work Experience
-        new Paragraph({
-          heading: HeadingLevel.HEADING_1,
-          children: [
-            new TextRun({
-              text: "WORK EXPERIENCE",
-              bold: true,
-              size: 20,
-              color: "2E74B5",
-            }),
-          ],
-        }),
-        new Paragraph({
-          children: [
-            new TextRun({
-              text: "Software Engineering Intern — CodeAlpha",
-              bold: true,
+              text: "• AI/ML: Python, TensorFlow, OpenAI API, Machine Learning Algorithms",
               size: 18,
             }),
           ],
@@ -194,32 +146,8 @@ export const generateCV = async () => {
         new Paragraph({
           children: [
             new TextRun({
-              text: "1 Month",
-              size: 16,
-            }),
-          ],
-        }),
-        new Paragraph({
-          children: [
-            new TextRun({
-              text: "• Assisted in software development and testing",
-              size: 16,
-            }),
-          ],
-        }),
-        new Paragraph({
-          children: [
-            new TextRun({
-              text: "• Collaborated in real-world project workflows",
-              size: 16,
-            }),
-          ],
-        }),
-        new Paragraph({
-          children: [
-            new TextRun({
-              text: "• Strengthened version control and teamwork skills (Git)",
-              size: 16,
+              text: "• Tools & Technologies: Git, Docker, AWS, Vercel, CI/CD, Agile Methodologies",
+              size: 18,
             }),
           ],
         }),
@@ -230,7 +158,7 @@ export const generateCV = async () => {
           heading: HeadingLevel.HEADING_1,
           children: [
             new TextRun({
-              text: "PROJECTS",
+              text: "KEY PROJECTS",
               bold: true,
               size: 20,
               color: "2E74B5",
@@ -242,7 +170,7 @@ export const generateCV = async () => {
         new Paragraph({
           children: [
             new TextRun({
-              text: "Flappy Bird Clone (JavaScript)",
+              text: "E-Commerce Platform | React, Node.js, PostgreSQL",
               bold: true,
               size: 18,
             }),
@@ -251,7 +179,23 @@ export const generateCV = async () => {
         new Paragraph({
           children: [
             new TextRun({
-              text: "• Recreated the classic game with responsive design",
+              text: "• Developed a full-featured e-commerce platform with user authentication, payment processing, and admin dashboard",
+              size: 16,
+            }),
+          ],
+        }),
+        new Paragraph({
+          children: [
+            new TextRun({
+              text: "• Implemented responsive design with 95% mobile compatibility and 40% improved loading speeds",
+              size: 16,
+            }),
+          ],
+        }),
+        new Paragraph({
+          children: [
+            new TextRun({
+              text: "• Integrated Stripe payment gateway and real-time inventory management",
               size: 16,
             }),
           ],
@@ -262,7 +206,7 @@ export const generateCV = async () => {
         new Paragraph({
           children: [
             new TextRun({
-              text: "GPA Calculator (HTML/CSS/JS)",
+              text: "AI Task Management App | React, Python, OpenAI API",
               bold: true,
               size: 18,
             }),
@@ -271,7 +215,23 @@ export const generateCV = async () => {
         new Paragraph({
           children: [
             new TextRun({
-              text: "• Built an interactive tool for accurate GPA calculation",
+              text: "• Built an intelligent task management system with AI-powered task prioritization and scheduling",
+              size: 16,
+            }),
+          ],
+        }),
+        new Paragraph({
+          children: [
+            new TextRun({
+              text: "• Implemented natural language processing for smart task creation and categorization",
+              size: 16,
+            }),
+          ],
+        }),
+        new Paragraph({
+          children: [
+            new TextRun({
+              text: "• Achieved 30% increase in user productivity through AI recommendations",
               size: 16,
             }),
           ],
@@ -282,7 +242,7 @@ export const generateCV = async () => {
         new Paragraph({
           children: [
             new TextRun({
-              text: "Jarvis AI Assistant (Python)",
+              text: "Desktop Inventory System | Electron.js, SQLite",
               bold: true,
               size: 18,
             }),
@@ -291,79 +251,35 @@ export const generateCV = async () => {
         new Paragraph({
           children: [
             new TextRun({
-              text: "• Voice-enabled assistant executing system commands",
+              text: "• Developed cross-platform desktop application for inventory management with offline capabilities",
+              size: 16,
+            }),
+          ],
+        }),
+        new Paragraph({
+          children: [
+            new TextRun({
+              text: "• Implemented barcode scanning, automated reorder alerts, and comprehensive reporting",
+              size: 16,
+            }),
+          ],
+        }),
+        new Paragraph({
+          children: [
+            new TextRun({
+              text: "• Reduced inventory tracking time by 60% for small to medium businesses",
               size: 16,
             }),
           ],
         }),
         new Paragraph({ text: "" }), // Space
 
-        // Project 4
-        new Paragraph({
-          children: [
-            new TextRun({
-              text: "Paint Application (C#)",
-              bold: true,
-              size: 18,
-            }),
-          ],
-        }),
-        new Paragraph({
-          children: [
-            new TextRun({
-              text: "• Desktop app with brush tools, shapes, and color options",
-              size: 16,
-            }),
-          ],
-        }),
-        new Paragraph({ text: "" }), // Space
-
-        // Project 5
-        new Paragraph({
-          children: [
-            new TextRun({
-              text: "Restaurant Website (HTML/CSS/JS)",
-              bold: true,
-              size: 18,
-            }),
-          ],
-        }),
-        new Paragraph({
-          children: [
-            new TextRun({
-              text: "• Functional site with menu and order management",
-              size: 16,
-            }),
-          ],
-        }),
-        new Paragraph({ text: "" }), // Space
-
-        // Project 6
-        new Paragraph({
-          children: [
-            new TextRun({
-              text: "NEOAURA – AI Chatbot System (Java)",
-              bold: true,
-              size: 18,
-            }),
-          ],
-        }),
-        new Paragraph({
-          children: [
-            new TextRun({
-              text: "• NLP-based chatbot for interactive conversations",
-              size: 16,
-            }),
-          ],
-        }),
-        new Paragraph({ text: "" }), // Space
-
-        // Certifications
+        // Services
         new Paragraph({
           heading: HeadingLevel.HEADING_1,
           children: [
             new TextRun({
-              text: "CERTIFICATIONS",
+              text: "PROFESSIONAL SERVICES",
               bold: true,
               size: 20,
               color: "2E74B5",
@@ -373,7 +289,7 @@ export const generateCV = async () => {
         new Paragraph({
           children: [
             new TextRun({
-              text: "• English for Science, Technology, Engineering, and Mathematics (STEM) MOOC",
+              text: "• Web Development: Custom responsive websites and web applications",
               size: 18,
             }),
           ],
@@ -381,27 +297,43 @@ export const generateCV = async () => {
         new Paragraph({
           children: [
             new TextRun({
-              text: "  Online Professional English Network (OPEN), sponsored by the U.S. Department of State",
-              size: 16,
+              text: "• Desktop Applications: Cross-platform software solutions for business automation",
+              size: 18,
             }),
           ],
         }),
         new Paragraph({
           children: [
             new TextRun({
-              text: "  Score: 99% - Developed advanced STEM communication skills",
-              size: 16,
+              text: "• AI Integration: Smart features and automation using machine learning",
+              size: 18,
+            }),
+          ],
+        }),
+        new Paragraph({
+          children: [
+            new TextRun({
+              text: "• Database Design: Efficient database architecture and optimization",
+              size: 18,
+            }),
+          ],
+        }),
+        new Paragraph({
+          children: [
+            new TextRun({
+              text: "• Technical Consulting: Code review, architecture planning, and performance optimization",
+              size: 18,
             }),
           ],
         }),
         new Paragraph({ text: "" }), // Space
 
-        // Languages
+        // Achievements
         new Paragraph({
           heading: HeadingLevel.HEADING_1,
           children: [
             new TextRun({
-              text: "LANGUAGES",
+              text: "ACHIEVEMENTS & CERTIFICATIONS",
               bold: true,
               size: 20,
               color: "2E74B5",
@@ -411,7 +343,7 @@ export const generateCV = async () => {
         new Paragraph({
           children: [
             new TextRun({
-              text: "• Urdu — Native",
+              text: "• AWS Certified Developer Associate (2023)",
               size: 18,
             }),
           ],
@@ -419,7 +351,23 @@ export const generateCV = async () => {
         new Paragraph({
           children: [
             new TextRun({
-              text: "• English — Advanced (STEM specialization, certified 99%)",
+              text: "• Google Cloud Professional Developer (2023)",
+              size: 18,
+            }),
+          ],
+        }),
+        new Paragraph({
+          children: [
+            new TextRun({
+              text: "• Winner of University Hackathon 2023 - Best Web Application",
+              size: 18,
+            }),
+          ],
+        }),
+        new Paragraph({
+          children: [
+            new TextRun({
+              text: "• Open Source Contributor - 50+ GitHub repositories",
               size: 18,
             }),
           ],
@@ -441,7 +389,7 @@ export const downloadCV = async () => {
     const url = window.URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'Muhammad_Waleed_Ahmed_CV.docx';
+    link.download = 'Muhammad_Waleed_CV.docx';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
