@@ -6,18 +6,22 @@ import Services from '@/components/Services';
 import Portfolio from '@/components/Portfolio';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import FuturisticBackground from '@/components/FuturisticBackground';
 
 const Index = () => {
   return (
-    <div className="min-h-screen scroll-smooth">
-      <Navigation />
-      <Hero />
-      <About />
-      <Skills />
-      <Services />
-      <Portfolio />
-      <Contact />
-      <Footer />
+    <div className="min-h-screen scroll-smooth relative">
+      <FuturisticBackground />
+      <div className="relative z-10">
+        <Navigation />
+        <Hero />
+        <About />
+        <Skills />
+        <Services />
+        <Portfolio />
+        <Contact />
+        <Footer />
+      </div>
     </div>
   );
 };

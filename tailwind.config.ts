@@ -90,6 +90,19 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+					'33%': { transform: 'translateY(-10px) rotate(1deg)' },
+					'66%': { transform: 'translateY(5px) rotate(-1deg)' },
+				},
+				'scan-line': {
+					'0%': { transform: 'translateY(-100vh)' },
+					'100%': { transform: 'translateY(100vh)' },
+				},
+				'grid-move': {
+					'0%': { transform: 'translate(0, 0)' },
+					'100%': { transform: 'translate(50px, 50px)' },
 				}
 			},
 			animation: {
@@ -103,7 +116,10 @@ export default {
 				'bounce-in': 'bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards',
 				'skill-bar': 'skillBarFill 2s ease-out forwards',
 				'pulse-glow': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-				'stagger': 'staggerIn 0.6s ease forwards'
+				'stagger': 'staggerIn 0.6s ease forwards',
+				'spin-slow': 'spin 20s linear infinite',
+				'scan-line': 'scan-line 3s linear infinite',
+				'grid-move': 'grid-move 20s linear infinite'
 			}
 		}
 	},
