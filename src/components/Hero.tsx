@@ -26,7 +26,7 @@ const Hero = () => {
           <div className="mb-8 relative inline-block mt-8">
             <div className="w-64 h-64 mx-auto rounded-full overflow-hidden border-4 border-brand-sky shadow-lg animate-profile-float">
               <img 
-                src="/lovable-uploads/a375dc22-5575-4cee-80c8-5ebdc7f613fb.png" 
+                src="/lovable-uploads/a43da1fd-a9cc-4560-a312-4a67b8abb279.png" 
                 alt="Muhammad Waleed Ahmed (Weedu)" 
                 className="w-full h-full object-cover"
               />
