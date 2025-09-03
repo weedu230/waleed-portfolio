@@ -22,6 +22,9 @@ const Navigation = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      setIsMobileMenuOpen(false); // Close mobile menu when navigating
+    } else {
+      console.error(`Element with id "${sectionId}" not found`);
     }
   };
 
