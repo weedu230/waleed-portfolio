@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { MessageCircle, X, Send, Bot, User, Settings } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
@@ -249,16 +250,23 @@ Guidelines:
   };
 
   return (
-    <>
+    <TooltipProvider>
       {/* Floating Chat Button */}
       {!isOpen && (
-        <Button
-          onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-brand-sky hover:bg-brand-sky/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 z-50"
-          size="icon"
-        >
-          <MessageCircle className="w-6 h-6" />
-        </Button>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button
+              onClick={() => setIsOpen(true)}
+              className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-brand-orange hover:bg-brand-orange/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 z-50"
+              size="icon"
+            >
+              <MessageCircle className="w-6 h-6" />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent side="top" className="mb-2">
+            <p>waleed's asistance</p>
+          </TooltipContent>
+        </Tooltip>
       )}
 
       {/* Chat Widget */}
@@ -385,7 +393,7 @@ Guidelines:
           </CardContent>
         </Card>
       )}
-    </>
+    </TooltipProvider>
   );
 };
 
