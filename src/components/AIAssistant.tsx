@@ -32,7 +32,7 @@ const AIAssistant = () => {
 
   useEffect(() => {
     // Load API key from localStorage
-    const savedApiKey = localStorage.getItem('openai_api_key');
+    const savedApiKey = localStorage.getItem('gemini_api_key');
     if (savedApiKey) {
       setApiKey(savedApiKey);
     }
@@ -136,23 +136,20 @@ const AIAssistant = () => {
     return null;
   };
 
-  const callOpenAI = async (userMessage: string): Promise<string> => {
+  const callGeminiAPI = async (userMessage: string): Promise<string> => {
     if (!apiKey) {
-      throw new Error('OpenAI API key is required');
+      throw new Error('Google Gemini API key is required');
     }
 
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${apiKey}`, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${apiKey}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'gpt-4o-mini',
-        messages: [
-          {
-            role: 'system',
-            content: `You are an AI assistant for Muhammad Waleed Ahmed's portfolio website. You help visitors learn about Waleed and navigate his website. 
+        contents: [{
+          parts: [{
+            text: `You are an AI assistant for Muhammad Waleed Ahmed's portfolio website. You help visitors learn about Waleed and navigate his website. 
 
 Here's comprehensive information about Waleed:
 ${waleedInfo}
@@ -164,24 +161,20 @@ Guidelines:
 - If asked about navigation, mention that you can help them navigate to different sections
 - If someone asks to see a specific section, let them know you'll scroll to it
 - Always refer to him as "Waleed" or "Muhammad Waleed Ahmed"
-- Highlight his key strengths: problem-solving, creativity, adaptability, and continuous learning`
-          },
-          {
-            role: 'user',
-            content: userMessage
-          }
-        ],
-        max_tokens: 300,
-        temperature: 0.7,
+- Highlight his key strengths: problem-solving, creativity, adaptability, and continuous learning
+
+User question: ${userMessage}`
+          }]
+        }]
       }),
     });
 
     if (!response.ok) {
-      throw new Error(`OpenAI API error: ${response.status}`);
+      throw new Error(`Gemini API error: ${response.status}`);
     }
 
     const data = await response.json();
-    return data.choices[0].message.content;
+    return data.candidates[0].content.parts[0].text;
   };
 
   const handleSendMessage = async () => {
@@ -207,9 +200,9 @@ Guidelines:
       if (navigationResponse) {
         assistantResponse = navigationResponse;
       } else if (apiKey) {
-        assistantResponse = await callOpenAI(inputMessage);
+        assistantResponse = await callGeminiAPI(inputMessage);
       } else {
-        assistantResponse = "I'd love to help you learn about Waleed! However, I need an OpenAI API key to provide detailed responses. You can set one by clicking the settings icon. In the meantime, I can help you navigate to different sections of the website - just ask me to show you the about, skills, portfolio, or contact sections!";
+        assistantResponse = "I'd love to help you learn about Waleed! However, I need a Google Gemini API key to provide detailed responses. You can set one by clicking the settings icon. In the meantime, I can help you navigate to different sections of the website - just ask me to show you the about, skills, portfolio, or contact sections!";
       }
 
       const assistantMessage: Message = {
@@ -233,11 +226,11 @@ Guidelines:
 
   const handleSaveApiKey = () => {
     if (apiKey.trim()) {
-      localStorage.setItem('openai_api_key', apiKey);
+      localStorage.setItem('gemini_api_key', apiKey);
       setShowApiKeyInput(false);
       toast({
         title: "API Key Saved",
-        description: "Your OpenAI API key has been saved locally.",
+        description: "Your Google Gemini API key has been saved locally.",
       });
     }
   };
@@ -271,7 +264,7 @@ Guidelines:
 
       {/* Chat Widget */}
       {isOpen && (
-        <Card className="fixed bottom-6 right-6 w-96 h-[500px] shadow-2xl z-50 flex flex-col">
+        <Card className="fixed bottom-20 right-6 w-96 h-[500px] shadow-2xl z-50 flex flex-col">
           <CardHeader className="bg-brand-sky text-white rounded-t-lg p-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
@@ -303,11 +296,11 @@ Guidelines:
           {showApiKeyInput && (
             <div className="p-4 border-b bg-secondary/20">
               <div className="space-y-2">
-                <label className="text-sm font-medium">OpenAI API Key:</label>
+                <label className="text-sm font-medium">Google Gemini API Key:</label>
                 <div className="flex gap-2">
                   <Input
                     type="password"
-                    placeholder="sk-..."
+                    placeholder="AIzaSy..."
                     value={apiKey}
                     onChange={(e) => setApiKey(e.target.value)}
                     className="text-sm"
