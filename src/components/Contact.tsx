@@ -21,28 +21,45 @@ const Contact = () => {
     email: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
-    // Create mailto link with form data
-    const subject = encodeURIComponent(`Portfolio Contact: Message from ${formData.name}`);
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    );
-    const mailtoLink = `mailto:mwaleed256@gmail.com?subject=${subject}&body=${body}`;
-    
-    // Open email client
-    window.location.href = mailtoLink;
-    
-    toast({
-      title: "Opening Email Client",
-      description: "Your email client will open with the message pre-filled. Just click send!",
-    });
-    
-    // Reset form
-    setFormData({ name: '', email: '', message: '' });
+    try {
+      const response = await fetch('/functions/v1/send-contact-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for your message. I'll get back to you soon!",
+        });
+        
+        // Reset form
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        throw new Error(result.error || 'Failed to send message');
+      }
+    } catch (error) {
+      console.error('Error sending message:', error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again or contact me directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -180,10 +197,11 @@ const Contact = () => {
                 <Button 
                   type="submit"
                   size="lg"
-                  className="w-full bg-brand-sky hover:bg-brand-sky/90 text-white"
+                  disabled={isSubmitting}
+                  className="w-full bg-brand-sky hover:bg-brand-sky/90 text-white disabled:opacity-50"
                 >
                   <Send className="w-5 h-5 mr-2" />
-                  Send Message
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </Button>
               </form>
             </CardContent>
