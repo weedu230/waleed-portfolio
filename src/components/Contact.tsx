@@ -4,6 +4,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
+import { supabase } from '@/lib/supabase';
+import SuccessModal from '@/components/SuccessModal';
 import { 
   Mail, 
   Phone, 
@@ -22,6 +24,7 @@ const Contact = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -29,27 +32,33 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch('/functions/v1/send-contact-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+      // First save to database
+      const { error: dbError } = await supabase
+        .from('contact_messages')
+        .insert({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          status: 'received'
+        });
+
+      if (dbError) {
+        throw dbError;
+      }
+
+      // Then call edge function to send email
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: formData,
       });
 
-      const result = await response.json();
-
-      if (result.success) {
-        toast({
-          title: "Message Sent!",
-          description: "Thank you for your message. I'll get back to you soon!",
-        });
-        
-        // Reset form
-        setFormData({ name: '', email: '', message: '' });
-      } else {
-        throw new Error(result.error || 'Failed to send message');
+      if (error) {
+        console.error('Edge function error:', error);
+        // Still show success since message was saved to database
       }
+
+      setShowSuccess(true);
+      setFormData({ name: '', email: '', message: '' });
+      
     } catch (error) {
       console.error('Error sending message:', error);
       toast({
@@ -208,6 +217,13 @@ const Contact = () => {
           </Card>
         </div>
       </div>
+      
+      <SuccessModal
+        isOpen={showSuccess}
+        onClose={() => setShowSuccess(false)}
+        title="Message Sent!"
+        message="Thank you for your message. I'll get back to you soon!"
+      />
     </section>
   );
 };
