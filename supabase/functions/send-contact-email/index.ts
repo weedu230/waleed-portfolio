@@ -41,7 +41,7 @@ serve(async (req) => {
     if (resendApiKey) {
       const emailData = {
         from: 'Portfolio Contact <noreply@yourdomain.com>',
-        to: ['mwaleed256@gmail.com'],
+        to: ['mwaleedahmed256@gmail.com'],
         subject: `Portfolio Contact: Message from ${name}`,
         html: `
           <h2>New Contact Form Submission</h2>

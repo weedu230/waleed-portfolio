@@ -32,35 +32,17 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // Try to save to database first
-      try {
-        const { error: dbError } = await supabase
-          .from('contact_messages')
-          .insert({
-            name: formData.name,
-            email: formData.email,
-            message: formData.message,
-            status: 'received'
-          });
-
-        if (dbError) {
-          console.log('Database not ready, using fallback storage');
-          throw dbError;
-        }
-      } catch (dbError) {
-        // Fallback: Store in localStorage
-        const messages = JSON.parse(localStorage.getItem('contact_messages') || '[]');
-        const newMessage = {
-          id: Date.now(),
+      // Call the edge function to handle both database storage and email sending
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: {
           name: formData.name,
           email: formData.email,
-          message: formData.message,
-          timestamp: new Date().toISOString(),
-          status: 'stored_locally'
-        };
-        messages.push(newMessage);
-        localStorage.setItem('contact_messages', JSON.stringify(messages));
-        console.log('Message stored locally:', newMessage);
+          message: formData.message
+        },
+      });
+
+      if (error) {
+        throw error;
       }
 
       // Show success popup
