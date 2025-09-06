@@ -49,9 +49,12 @@
     --shadow-card: 0 4px 6px -1px hsl(var(--brand-sky) / 0.1), 0 2px 4px -1px hsl(var(--brand-sky) / 0.06);
     --shadow-hover: 0 10px 15px -3px hsl(var(--brand-sky) / 0.2), 0 4px 6px -2px hsl(var(--brand-sky) / 0.1);
 
-    /* Animations */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  /* Enhanced Animations */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --transition-spring: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --transition-elastic: all 0.8s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  --transition-magnetic: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     --radius: 0.5rem;
 
@@ -96,6 +99,48 @@
   .portfolio-hero {
     background: var(--gradient-hero);
   }
+
+  /* Enhanced Interactive Elements */
+  .magnetic-button {
+    transition: var(--transition-magnetic);
+    will-change: transform;
+  }
+
+  .elastic-hover {
+    transition: var(--transition-elastic);
+  }
+
+  .elastic-hover:hover {
+    transform: scale(1.05);
+  }
+
+  .tilt-3d {
+    transform-style: preserve-3d;
+    transition: var(--transition-smooth);
+  }
+
+  .ripple-effect {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ripple-effect::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+
+  .ripple-effect:active::before {
+    width: 300px;
+    height: 300px;
+  }
   
   .portfolio-card {
     background: var(--gradient-card);
@@ -127,6 +172,61 @@
   @keyframes float {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-10px); }
+  }
+
+  /* Advanced Keyframe Animations */
+  @keyframes magneticPull {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(var(--magnetic-x, 0), var(--magnetic-y, 0)) scale(1.02); }
+    100% { transform: translate(0, 0) scale(1); }
+  }
+
+  @keyframes morphButton {
+    0% { border-radius: 8px; }
+    50% { border-radius: 20px; transform: scale(0.98); }
+    100% { border-radius: 8px; }
+  }
+
+  @keyframes colorWave {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes textReveal {
+    0% { 
+      opacity: 0; 
+      transform: translateY(20px) rotateX(90deg); 
+    }
+    100% { 
+      opacity: 1; 
+      transform: translateY(0) rotateX(0deg); 
+    }
+  }
+
+  @keyframes skillProgress {
+    0% { 
+      width: 0%; 
+      opacity: 0;
+    }
+    100% { 
+      width: var(--skill-width);
+      opacity: 1;
+    }
+  }
+
+  @keyframes cardGlow {
+    0%, 100% { 
+      box-shadow: 0 4px 20px rgba(59, 130, 246, 0.1);
+    }
+    50% { 
+      box-shadow: 0 8px 40px rgba(59, 130, 246, 0.3);
+    }
+  }
+
+  @keyframes breathe {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
   }
   
   .animate-fade-in {
@@ -283,6 +383,43 @@
       opacity: 1;
       transform: translateY(0);
     }
+  }
+
+  /* Enhanced Interactive Classes */
+  .card-3d {
+    transform-style: preserve-3d;
+    transition: var(--transition-smooth);
+    cursor: pointer;
+  }
+
+  .card-3d:hover {
+    animation: cardGlow 2s ease-in-out infinite;
+  }
+
+  .morphing-button {
+    transition: var(--transition-elastic);
+  }
+
+  .morphing-button:hover {
+    animation: morphButton 0.6s ease-in-out;
+  }
+
+  .color-wave {
+    background: linear-gradient(270deg, hsl(var(--brand-sky)), hsl(var(--brand-orange)), hsl(var(--brand-sky)));
+    background-size: 400% 400%;
+    animation: colorWave 3s ease infinite;
+  }
+
+  .text-reveal {
+    animation: textReveal 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  .breathing {
+    animation: breathe 3s ease-in-out infinite;
+  }
+
+  .skill-progress-bar {
+    animation: skillProgress 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
   }
 }
 
