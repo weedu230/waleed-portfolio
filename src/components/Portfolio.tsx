@@ -12,12 +12,9 @@ import {
   Hospital
 } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { use3DTilt } from '@/hooks/use3DTilt';
-import { useMagneticEffect } from '@/hooks/useMagneticEffect';
 
 const Portfolio = () => {
   const [ref, isVisible] = useScrollAnimation(0.2);
-  const magneticRef = useMagneticEffect({ strength: 0.2, threshold: 60 });
   const projects = [
     {
       title: "Flappy Bird Clone",
@@ -98,63 +95,48 @@ const Portfolio = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {projects.map((project, index) => {
             const IconComponent = project.icon;
-            const ProjectCard = () => {
-              const tiltRef = use3DTilt({ maxTilt: 15, scale: 1.05 });
-              
-              return (
-                <Card 
-                  ref={tiltRef}
-                  key={index} 
-                  className={`portfolio-card group overflow-hidden transition-all duration-700 tilt-3d card-3d cursor-pointer ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-8'}`} 
-                  style={{ animationDelay: `${index * 100 + 200}ms` }}
-                >
-                  <CardContent className="p-0 relative">
-                    {/* Hover overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-brand-sky/10 to-brand-orange/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
-                    {/* Project Header */}
-                    <div className={`bg-${project.color}/5 p-6 border-b border-${project.color}/10 relative z-20`}>
-                      <div className="flex items-center justify-between mb-4">
-                        <div className={`w-12 h-12 bg-${project.color}/10 rounded-full flex items-center justify-center skill-icon group-hover:scale-110 transition-transform duration-300`}>
-                          <IconComponent className={`w-6 h-6 text-${project.color} group-hover:rotate-12 transition-transform duration-300`} />
-                        </div>
-                        <span className={`text-xs px-3 py-1 bg-${project.color}/10 text-${project.color} rounded-full border border-${project.color}/20 group-hover:scale-105 transition-transform duration-300`}>
-                          {project.category}
-                        </span>
+            return (
+              <Card key={index} className={`portfolio-card group overflow-hidden transition-all duration-700 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-8'}`} style={{ animationDelay: `${index * 100 + 200}ms` }}>
+                <CardContent className="p-0">
+                  {/* Project Header */}
+                  <div className={`bg-${project.color}/5 p-6 border-b border-${project.color}/10`}>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className={`w-12 h-12 bg-${project.color}/10 rounded-full flex items-center justify-center skill-icon`}>
+                        <IconComponent className={`w-6 h-6 text-${project.color}`} />
                       </div>
-                      <h3 className="text-xl font-bold text-primary mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-brand-sky group-hover:to-brand-orange group-hover:bg-clip-text transition-all duration-300">
-                        {project.title}
-                      </h3>
-                      <div className="flex items-center gap-2">
-                        <span className={`text-sm font-medium text-${project.color} group-hover:animate-pulse`}>
-                          {project.tech}
-                        </span>
-                      </div>
+                      <span className={`text-xs px-3 py-1 bg-${project.color}/10 text-${project.color} rounded-full border border-${project.color}/20`}>
+                        {project.category}
+                      </span>
                     </div>
+                    <h3 className="text-xl font-bold text-primary mb-2">{project.title}</h3>
+                    <div className="flex items-center gap-2">
+                      <span className={`text-sm font-medium text-${project.color}`}>
+                        {project.tech}
+                      </span>
+                    </div>
+                  </div>
 
-                    {/* Project Content */}
-                    <div className="p-6 relative z-20">
-                      <p className="text-muted-foreground leading-relaxed mb-6 group-hover:text-foreground transition-colors duration-300">
-                        {project.description}
-                      </p>
-                      
-                      <div className="flex justify-end">
-                        <Button 
-                          size="sm"
-                          variant="outline"
-                          className={`border-${project.color}/30 text-${project.color} hover:bg-${project.color}/10 morphing-button group-hover:border-${project.color} transition-all duration-300`}
-                          onClick={() => window.open(project.githubUrl, '_blank')}
-                        >
-                          <Github className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform duration-300" />
-                          GitHub
-                        </Button>
-                      </div>
+                  {/* Project Content */}
+                  <div className="p-6">
+                    <p className="text-muted-foreground leading-relaxed mb-6">
+                      {project.description}
+                    </p>
+                    
+                    <div className="flex justify-end">
+                      <Button 
+                        size="sm"
+                        variant="outline"
+                        className={`border-${project.color}/30 text-${project.color} hover:bg-${project.color}/10`}
+                        onClick={() => window.open(project.githubUrl, '_blank')}
+                      >
+                        <Github className="w-4 h-4 mr-2" />
+                        GitHub
+                      </Button>
                     </div>
-                  </CardContent>
-                </Card>
-              );
-            };
-            
-            return <ProjectCard key={index} />;
+                  </div>
+                </CardContent>
+              </Card>
+            );
           })}
         </div>
 
@@ -164,9 +146,8 @@ const Portfolio = () => {
             Interested in working together? Let's discuss your next project.
           </p>
           <Button 
-            ref={magneticRef}
             size="lg"
-            className="bg-brand-sky hover:bg-brand-sky/90 text-white px-8 py-3 magnetic-button morphing-button ripple-effect"
+            className="bg-brand-sky hover:bg-brand-sky/90 text-white px-8 py-3"
             onClick={() => {
               const element = document.getElementById('contact');
               if (element) element.scrollIntoView({ behavior: 'smooth' });
