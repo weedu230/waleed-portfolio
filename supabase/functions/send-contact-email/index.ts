@@ -15,10 +15,12 @@ serve(async (req) => {
   try {
     const { name, email, message } = await req.json()
 
-    // Initialize Supabase client
+    console.log('Processing contact form submission:', { name, email })
+
+    // Initialize Supabase client with service role for database operations
     const supabaseClient = createClient(
       Deno.env.get('SUPABASE_URL') ?? '',
-      Deno.env.get('SUPABASE_ANON_KEY') ?? ''
+      Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
     )
 
     // Store message in database
@@ -28,7 +30,7 @@ serve(async (req) => {
         name,
         email,
         message,
-        status: 'received'
+        status: 'new'
       })
 
     if (dbError) {
