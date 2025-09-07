@@ -9,13 +9,24 @@ import {
   Palette, 
   Globe, 
   MessageSquare,
-  Hospital
+  Hospital,
+  FileText
 } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const Portfolio = () => {
   const [ref, isVisible] = useScrollAnimation(0.2);
   const projects = [
+    {
+      title: "PDF Master",
+      icon: FileText,
+      tech: "Web Application",
+      description: "A comprehensive PDF editing and conversion tool that allows users to edit, convert, merge, and manipulate PDF documents online.",
+      color: "brand-orange",
+      category: "Web Application",
+      githubUrl: "https://pdf-master.base44.app/",
+      isLiveProject: true
+    },
     {
       title: "Flappy Bird Clone",
       icon: Gamepad2,
@@ -129,8 +140,17 @@ const Portfolio = () => {
                         className={`border-${project.color}/30 text-${project.color} hover:bg-${project.color}/10`}
                         onClick={() => window.open(project.githubUrl, '_blank')}
                       >
-                        <Github className="w-4 h-4 mr-2" />
-                        GitHub
+                        {project.isLiveProject ? (
+                          <>
+                            <ExternalLink className="w-4 h-4 mr-2" />
+                            Live Demo
+                          </>
+                        ) : (
+                          <>
+                            <Github className="w-4 h-4 mr-2" />
+                            GitHub
+                          </>
+                        )}
                       </Button>
                     </div>
                   </div>
