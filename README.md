@@ -1,7 +1,7 @@
 # Welcome to my portfolio
 
 
-Demo : https://preview--waleed-portfolio.lovable.app/
+https://waleed-portfolio.lovable.app/
 
 
 
