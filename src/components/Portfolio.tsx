@@ -28,6 +28,17 @@ const Portfolio = () => {
       isLiveProject: true
     },
     {
+      title: "ReqBot",
+      icon: Bot,
+      tech: "Next.js + AI",
+      description: "An AI-powered business analyst that helps users elicit, refine, and document project requirements through an intuitive conversational interface with voice capabilities.",
+      color: "brand-sky",
+      category: "AI & Web Application",
+      githubUrl: "https://github.com/weedu230/reqbot",
+      liveUrl: "https://reqbot-sigma.vercel.app/",
+      isLiveProject: true
+    },
+    {
       title: "Flappy Bird Clone",
       icon: Gamepad2,
       tech: "JavaScript",
@@ -133,25 +144,40 @@ const Portfolio = () => {
                       {project.description}
                     </p>
                     
-                    <div className="flex justify-end">
-                      <Button 
-                        size="sm"
-                        variant="outline"
-                        className={`border-${project.color}/30 text-${project.color} hover:bg-${project.color}/10`}
-                        onClick={() => window.open(project.githubUrl, '_blank')}
-                      >
-                        {project.isLiveProject ? (
-                          <>
-                            <ExternalLink className="w-4 h-4 mr-2" />
-                            Live Demo
-                          </>
-                        ) : (
-                          <>
-                            <Github className="w-4 h-4 mr-2" />
-                            GitHub
-                          </>
-                        )}
-                      </Button>
+                    <div className="flex justify-end gap-2">
+                      {project.isLiveProject && (
+                        <Button 
+                          size="sm"
+                          variant="outline"
+                          className={`border-${project.color}/30 text-${project.color} hover:bg-${project.color}/10`}
+                          onClick={() => window.open(project.liveUrl || project.githubUrl, '_blank')}
+                        >
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          Live Demo
+                        </Button>
+                      )}
+                      {project.liveUrl && (
+                        <Button 
+                          size="sm"
+                          variant="outline"
+                          className={`border-${project.color}/30 text-${project.color} hover:bg-${project.color}/10`}
+                          onClick={() => window.open(project.githubUrl, '_blank')}
+                        >
+                          <Github className="w-4 h-4 mr-2" />
+                          GitHub
+                        </Button>
+                      )}
+                      {!project.isLiveProject && !project.liveUrl && (
+                        <Button 
+                          size="sm"
+                          variant="outline"
+                          className={`border-${project.color}/30 text-${project.color} hover:bg-${project.color}/10`}
+                          onClick={() => window.open(project.githubUrl, '_blank')}
+                        >
+                          <Github className="w-4 h-4 mr-2" />
+                          GitHub
+                        </Button>
+                      )}
                     </div>
                   </div>
                 </CardContent>

@@ -31,7 +31,25 @@ export const generateCV = async () => {
           alignment: AlignmentType.CENTER,
           children: [
             new TextRun({
-              text: "📧 mwaleedahmed256@gmail.com | 📱 0333-2406306 | 🔗 LinkedIn | 💻 GitHub | 🌐 Portfolio",
+              text: "📧 mwaleedahmed256@gmail.com | 📱 0333-2406306",
+              size: 16,
+            }),
+          ],
+        }),
+        new Paragraph({
+          alignment: AlignmentType.CENTER,
+          children: [
+            new TextRun({
+              text: "💻 GitHub: github.com/weedu230 | 🔗 LinkedIn: linkedin.com/in/weedu230",
+              size: 16,
+            }),
+          ],
+        }),
+        new Paragraph({
+          alignment: AlignmentType.CENTER,
+          children: [
+            new TextRun({
+              text: "🌐 Portfolio: waleed-portfolio.lovable.app",
               size: 16,
             }),
           ],
@@ -217,7 +235,12 @@ export const generateCV = async () => {
         new Paragraph({
           children: [
             new TextRun({
-              text: "Flappy Bird Clone (JavaScript): Recreated the classic game with responsive design",
+              text: "PDF Master (React/Web App): ",
+              bold: true,
+              size: 16,
+            }),
+            new TextRun({
+              text: "Comprehensive PDF editing and conversion tool with merge, split, and manipulation features | Live: pdf-master.base44.app",
               size: 16,
             }),
           ],
@@ -225,7 +248,12 @@ export const generateCV = async () => {
         new Paragraph({
           children: [
             new TextRun({
-              text: "GPA Calculator (HTML/CSS/JS): Built an interactive tool for accurate GPA calculation",
+              text: "ReqBot (Next.js + AI): ",
+              bold: true,
+              size: 16,
+            }),
+            new TextRun({
+              text: "AI-powered business analyst for requirement elicitation with voice-enabled conversational interface | GitHub: github.com/weedu230/reqbot | Live: reqbot-sigma.vercel.app",
               size: 16,
             }),
           ],
@@ -233,7 +261,12 @@ export const generateCV = async () => {
         new Paragraph({
           children: [
             new TextRun({
-              text: "Jarvis AI Assistant (Python): Voice-enabled assistant executing system commands",
+              text: "Hospital Management System (Java + MySQL): ",
+              bold: true,
+              size: 16,
+            }),
+            new TextRun({
+              text: "Enterprise application with patient records, appointment scheduling, and staff management | GitHub: github.com/weedu230/hospital-management-system",
               size: 16,
             }),
           ],
@@ -241,7 +274,12 @@ export const generateCV = async () => {
         new Paragraph({
           children: [
             new TextRun({
-              text: "Paint Application (C#): Desktop app with brush tools, shapes, and color options",
+              text: "Jarvis AI Assistant (Python): ",
+              bold: true,
+              size: 16,
+            }),
+            new TextRun({
+              text: "Voice-enabled personal assistant with automation features | GitHub: github.com/weedu230/jarvis-ai-assistant",
               size: 16,
             }),
           ],
@@ -249,7 +287,12 @@ export const generateCV = async () => {
         new Paragraph({
           children: [
             new TextRun({
-              text: "Restaurant Website (HTML/CSS/JS): Functional site with menu and order management",
+              text: "NeoAura Chatbot (Java): ",
+              bold: true,
+              size: 16,
+            }),
+            new TextRun({
+              text: "AI-driven chatbot management system with intelligent responses | GitHub: github.com/weedu230/neoaura-chatbot",
               size: 16,
             }),
           ],
@@ -257,7 +300,51 @@ export const generateCV = async () => {
         new Paragraph({
           children: [
             new TextRun({
-              text: "NEOAURA – AI Chatbot System (Java): NLP-based chatbot for interactive conversations",
+              text: "Paint Application (C#): ",
+              bold: true,
+              size: 16,
+            }),
+            new TextRun({
+              text: "Desktop drawing tool with freehand sketching and adjustable brush sizes | GitHub: github.com/weedu230/paint-application",
+              size: 16,
+            }),
+          ],
+        }),
+        new Paragraph({
+          children: [
+            new TextRun({
+              text: "Flappy Bird Clone (JavaScript): ",
+              bold: true,
+              size: 16,
+            }),
+            new TextRun({
+              text: "Browser-based arcade game with smooth animations | GitHub: github.com/weedu230/flappy-bird-clone",
+              size: 16,
+            }),
+          ],
+        }),
+        new Paragraph({
+          children: [
+            new TextRun({
+              text: "Restaurant Website (HTML/CSS/JS): ",
+              bold: true,
+              size: 16,
+            }),
+            new TextRun({
+              text: "Responsive restaurant website with modern UI | GitHub: github.com/weedu230/restaurant-website",
+              size: 16,
+            }),
+          ],
+        }),
+        new Paragraph({
+          children: [
+            new TextRun({
+              text: "GPA Calculator (HTML/CSS/JS): ",
+              bold: true,
+              size: 16,
+            }),
+            new TextRun({
+              text: "Interactive web tool for GPA calculation | GitHub: github.com/weedu230/gpa-calculator",
               size: 16,
             }),
           ],
