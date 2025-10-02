@@ -85,6 +85,12 @@ const Navigation = () => {
               Portfolio
             </button>
             <button
+              onClick={() => scrollToSection('testimonials')}
+              className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 dark:border-brand-orange/50 dark:hover:border-brand-orange rounded-md px-3 py-2"
+            >
+              Testimonials
+            </button>
+            <button
               onClick={() => scrollToSection('contact')}
               className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 dark:border-brand-orange/50 dark:hover:border-brand-orange rounded-md px-3 py-2"
             >
@@ -147,6 +153,12 @@ const Navigation = () => {
                 className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 dark:border-brand-orange/50 dark:hover:border-brand-orange rounded-md px-3 py-2 text-left"
               >
                 Portfolio
+              </button>
+              <button
+                onClick={() => { scrollToSection('testimonials'); setIsMobileMenuOpen(false); }}
+                className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 dark:border-brand-orange/50 dark:hover:border-brand-orange rounded-md px-3 py-2 text-left"
+              >
+                Testimonials
               </button>
               <button
                 onClick={() => { scrollToSection('contact'); setIsMobileMenuOpen(false); }}
