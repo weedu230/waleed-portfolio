@@ -44,29 +44,102 @@ export type Database = {
         }
         Relationships: []
       }
-      user_roles: {
+      conversations: {
         Row: {
           created_at: string
           id: string
-          role: Database["public"]["Enums"]["app_role"]
+          title: string | null
           updated_at: string
-          user_id: string
+          user_id: string | null
         }
         Insert: {
           created_at?: string
           id?: string
-          role?: Database["public"]["Enums"]["app_role"]
+          title?: string | null
           updated_at?: string
-          user_id: string
+          user_id?: string | null
         }
         Update: {
           created_at?: string
           id?: string
-          role?: Database["public"]["Enums"]["app_role"]
+          title?: string | null
           updated_at?: string
-          user_id?: string
+          user_id?: string | null
         }
         Relationships: []
+      }
+      messages: {
+        Row: {
+          content: string
+          conversation_id: string
+          id: string
+          role: string
+          timestamp: string
+        }
+        Insert: {
+          content: string
+          conversation_id: string
+          id?: string
+          role: string
+          timestamp?: string
+        }
+        Update: {
+          content?: string
+          conversation_id?: string
+          id?: string
+          role?: string
+          timestamp?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "messages_conversation_id_fkey"
+            columns: ["conversation_id"]
+            isOneToOne: false
+            referencedRelation: "conversations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      requirements: {
+        Row: {
+          confidence_score: number | null
+          conversation_id: string
+          created_at: string
+          description: string
+          id: string
+          priority: string
+          req_id: string
+          type: string
+        }
+        Insert: {
+          confidence_score?: number | null
+          conversation_id: string
+          created_at?: string
+          description: string
+          id?: string
+          priority: string
+          req_id: string
+          type: string
+        }
+        Update: {
+          confidence_score?: number | null
+          conversation_id?: string
+          created_at?: string
+          description?: string
+          id?: string
+          priority?: string
+          req_id?: string
+          type?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "requirements_conversation_id_fkey"
+            columns: ["conversation_id"]
+            isOneToOne: false
+            referencedRelation: "conversations"
+            referencedColumns: ["id"]
+          },
+        ]
       }
     }
     Views: {
