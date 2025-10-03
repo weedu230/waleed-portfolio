@@ -45,7 +45,9 @@ const Portfolio = () => {
       description: "A browser-based arcade game replicating the classic Flappy Bird mechanics with smooth animations and responsive controls.",
       color: "brand-sky",
       category: "Game Development",
-      githubUrl: "https://github.com/weedu230/flappy-bird-clone"
+      githubUrl: "https://github.com/weedu230/flappy-bird-clone",
+      liveUrl: "https://weedu230.github.io/flappy-bird-clone/",
+      isLiveProject: true
     },
     {
       title: "GPA Calculator",
@@ -54,7 +56,9 @@ const Portfolio = () => {
       description: "A simple web tool to calculate GPA with ease and accuracy, featuring an intuitive interface and real-time calculations.",
       color: "brand-orange",
       category: "Web Application",
-      githubUrl: "https://github.com/weedu230/gpa-calculator"
+      githubUrl: "https://github.com/weedu230/gpa-calculator",
+      liveUrl: "https://weedu230.github.io/GPA-calculator/",
+      isLiveProject: true
     },
     {
       title: "Jarvis AI Assistant",
@@ -81,7 +85,9 @@ const Portfolio = () => {
       description: "A responsive restaurant website showcasing menus and services with a modern UI and seamless user experience.",
       color: "brand-sky",
       category: "Web Design",
-      githubUrl: "https://github.com/weedu230/restaurant-website"
+      githubUrl: "https://github.com/weedu230/restaurant-website",
+      liveUrl: "https://weedu230.github.io/Restaurant-website/",
+      isLiveProject: true
     },
     {
       title: "NeoAura Chatbot",
