@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { MessageCircle, X, Send, Bot, User, Settings } from 'lucide-react';
+import { MessageCircle, X, Send, Bot, User } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 interface Message {
@@ -25,18 +25,10 @@ const AIAssistant = () => {
   ]);
   const [inputMessage, setInputMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [apiKey, setApiKey] = useState('');
-  const [showApiKeyInput, setShowApiKeyInput] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
-
-  useEffect(() => {
-    // Load API key from localStorage
-    const savedApiKey = localStorage.getItem('gemini_api_key');
-    if (savedApiKey) {
-      setApiKey(savedApiKey);
-    }
-  }, []);
+  
+  const GEMINI_API_KEY = "AIzaSyBlJUOTlP5LJgpGrsGxc5EH4rbfmCK62qQ";
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -137,11 +129,7 @@ const AIAssistant = () => {
   };
 
   const callGeminiAPI = async (userMessage: string): Promise<string> => {
-    if (!apiKey) {
-      throw new Error('Google Gemini API key is required');
-    }
-
-    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${apiKey}`, {
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -199,10 +187,8 @@ User question: ${userMessage}`
       
       if (navigationResponse) {
         assistantResponse = navigationResponse;
-      } else if (apiKey) {
-        assistantResponse = await callGeminiAPI(inputMessage);
       } else {
-        assistantResponse = "I'd love to help you learn about Waleed! However, I need a Google Gemini API key to provide detailed responses. You can set one by clicking the settings icon. In the meantime, I can help you navigate to different sections of the website - just ask me to show you the about, skills, portfolio, or contact sections!";
+        assistantResponse = await callGeminiAPI(inputMessage);
       }
 
       const assistantMessage: Message = {
@@ -221,17 +207,6 @@ User question: ${userMessage}`
       });
     } finally {
       setIsLoading(false);
-    }
-  };
-
-  const handleSaveApiKey = () => {
-    if (apiKey.trim()) {
-      localStorage.setItem('gemini_api_key', apiKey);
-      setShowApiKeyInput(false);
-      toast({
-        title: "API Key Saved",
-        description: "Your Google Gemini API key has been saved locally.",
-      });
     }
   };
 
@@ -271,50 +246,16 @@ User question: ${userMessage}`
                 <Bot className="w-5 h-5" />
                 <CardTitle className="text-lg">Waleed's AI Assistant</CardTitle>
               </div>
-              <div className="flex items-center gap-2">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="text-white hover:bg-white/20 h-8 w-8"
-                  onClick={() => setShowApiKeyInput(!showApiKeyInput)}
-                >
-                  <Settings className="w-4 h-4" />
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="text-white hover:bg-white/20 h-8 w-8"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <X className="w-4 h-4" />
-                </Button>
-              </div>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-white hover:bg-white/20 h-8 w-8"
+                onClick={() => setIsOpen(false)}
+              >
+                <X className="w-4 h-4" />
+              </Button>
             </div>
           </CardHeader>
-
-          {/* API Key Input */}
-          {showApiKeyInput && (
-            <div className="p-4 border-b bg-secondary/20">
-              <div className="space-y-2">
-                <label className="text-sm font-medium">Google Gemini API Key:</label>
-                <div className="flex gap-2">
-                  <Input
-                    type="password"
-                    placeholder="AIzaSy..."
-                    value={apiKey}
-                    onChange={(e) => setApiKey(e.target.value)}
-                    className="text-sm"
-                  />
-                  <Button size="sm" onClick={handleSaveApiKey}>
-                    Save
-                  </Button>
-                </div>
-                <p className="text-xs text-muted-foreground">
-                  Your API key is stored locally and only used for AI responses.
-                </p>
-              </div>
-            </div>
-          )}
 
           <CardContent className="flex-1 flex flex-col p-0">
             {/* Messages */}
