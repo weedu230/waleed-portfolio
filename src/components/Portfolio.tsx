@@ -150,12 +150,12 @@ const Portfolio = () => {
                       {project.description}
                     </p>
                     
-                    <div className="flex justify-end gap-2">
+                    <div className="flex justify-center gap-2">
                       {project.isLiveProject && (
                         <Button 
                           size="sm"
                           variant="outline"
-                          className={`border-${project.color}/30 text-${project.color} hover:bg-${project.color}/10`}
+                          className={`border-${project.color}/30 text-${project.color} hover:bg-${project.color}/10 flex-1`}
                           onClick={() => window.open(project.liveUrl || project.githubUrl, '_blank')}
                         >
                           <ExternalLink className="w-4 h-4 mr-2" />
@@ -166,7 +166,7 @@ const Portfolio = () => {
                         <Button 
                           size="sm"
                           variant="outline"
-                          className={`border-${project.color}/30 text-${project.color} hover:bg-${project.color}/10`}
+                          className={`border-${project.color}/30 text-${project.color} hover:bg-${project.color}/10 flex-1`}
                           onClick={() => window.open(project.githubUrl, '_blank')}
                         >
                           <Github className="w-4 h-4 mr-2" />
@@ -177,7 +177,7 @@ const Portfolio = () => {
                         <Button 
                           size="sm"
                           variant="outline"
-                          className={`border-${project.color}/30 text-${project.color} hover:bg-${project.color}/10`}
+                          className={`border-${project.color}/30 text-${project.color} hover:bg-${project.color}/10 flex-1`}
                           onClick={() => window.open(project.githubUrl, '_blank')}
                         >
                           <Github className="w-4 h-4 mr-2" />
