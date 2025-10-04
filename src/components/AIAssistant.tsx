@@ -257,9 +257,9 @@ User question: ${userMessage}`
             </div>
           </CardHeader>
 
-          <CardContent className="flex-1 flex flex-col p-0">
+          <CardContent className="flex-1 flex flex-col p-0 overflow-hidden">
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4">
+            <div className="flex-1 overflow-y-auto p-4 space-y-4 min-h-0">
               {messages.map((message) => (
                 <div
                   key={message.id}
@@ -304,7 +304,7 @@ User question: ${userMessage}`
             </div>
 
             {/* Input */}
-            <div className="p-4 border-t">
+            <div className="p-4 border-t flex-shrink-0">
               <div className="flex gap-2">
                 <Input
                   placeholder="Ask about Waleed's qualifications, skills, or navigate the site..."
