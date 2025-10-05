@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { MessageCircle, X, Send, Bot, User } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { supabase } from "@/integrations/supabase/client";
 
 interface Message {
   id: string;
@@ -28,7 +29,7 @@ const AIAssistant = () => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
   
-  const GEMINI_API_KEY = "AIzaSyBlJUOTlP5LJgpGrsGxc5EH4rbfmCK62qQ";
+  // Removed direct Gemini API key usage. Now using Lovable AI via Supabase Edge Function.
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -128,41 +129,18 @@ const AIAssistant = () => {
     return null;
   };
 
-  const callGeminiAPI = async (userMessage: string): Promise<string> => {
-    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        contents: [{
-          parts: [{
-            text: `You are an AI assistant for Muhammad Waleed Ahmed's portfolio website. You help visitors learn about Waleed and navigate his website. 
-
-Here's comprehensive information about Waleed:
-${waleedInfo}
-
-Guidelines:
-- Be friendly, professional, and helpful
-- Answer questions about Waleed's qualifications, skills, projects, education, and experience
-- Keep responses concise but informative
-- If asked about navigation, mention that you can help them navigate to different sections
-- If someone asks to see a specific section, let them know you'll scroll to it
-- Always refer to him as "Waleed" or "Muhammad Waleed Ahmed"
-- Highlight his key strengths: problem-solving, creativity, adaptability, and continuous learning
-
-User question: ${userMessage}`
-          }]
-        }]
-      }),
+  const callAI = async (userMessage: string): Promise<string> => {
+    const { data, error } = await supabase.functions.invoke('chat', {
+      body: {
+        messages: [{ role: 'user', content: userMessage }]
+      }
     });
 
-    if (!response.ok) {
-      throw new Error(`Gemini API error: ${response.status}`);
+    if (error) {
+      throw new Error(error.message || 'AI function error');
     }
 
-    const data = await response.json();
-    return data.candidates[0].content.parts[0].text;
+    return (data && (data as any).content) || "Sorry, I couldn't generate a response.";
   };
 
   const handleSendMessage = async () => {
@@ -188,7 +166,7 @@ User question: ${userMessage}`
       if (navigationResponse) {
         assistantResponse = navigationResponse;
       } else {
-        assistantResponse = await callGeminiAPI(inputMessage);
+        assistantResponse = await callAI(inputMessage);
       }
 
       const assistantMessage: Message = {
