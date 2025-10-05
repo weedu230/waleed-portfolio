@@ -41,7 +41,7 @@ const About = () => {
                 </div>
                 <h3 className="text-2xl font-bold text-primary">Education</h3>
               </div>
-              <div className="space-y-4">
+              <div className="space-y-6">
                 <div className="border-l-4 border-brand-sky pl-6">
                   <h4 className="text-xl font-semibold text-primary">Bachelors in Software Engineering</h4>
                   <p className="text-brand-sky font-medium">Bahria University Karachi</p>
@@ -49,6 +49,24 @@ const About = () => {
                   <p className="text-muted-foreground mt-2">
                     Comprehensive curriculum covering software development, algorithms, database systems, 
                     web technologies, and modern programming paradigms.
+                  </p>
+                </div>
+
+                <div className="border-l-4 border-brand-orange pl-6">
+                  <h4 className="text-xl font-semibold text-primary">Intermediate (Pre-Engineering)</h4>
+                  <p className="text-brand-orange font-medium">Bahria College Karsaz Karachi</p>
+                  <p className="text-muted-foreground">Grade: A</p>
+                  <p className="text-muted-foreground mt-2">
+                    Pre-Engineering program with focus on Mathematics, Physics, and Chemistry.
+                  </p>
+                </div>
+
+                <div className="border-l-4 border-brand-sky pl-6">
+                  <h4 className="text-xl font-semibold text-primary">Matriculation (Biology, General)</h4>
+                  <p className="text-brand-sky font-medium">Bahria College Karsaz Karachi</p>
+                  <p className="text-muted-foreground">Grade: A+</p>
+                  <p className="text-muted-foreground mt-2">
+                    Secondary School Certificate with Biology and General Science.
                   </p>
                 </div>
               </div>
