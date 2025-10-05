@@ -1,7 +1,7 @@
 # Welcome to my portfolio
 
 
-https://waleed-portfolio.lovable.app/
+https://waleed-portfolio-omega.vercel.app/
 
 
 
