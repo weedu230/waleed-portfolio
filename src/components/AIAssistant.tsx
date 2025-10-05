@@ -28,7 +28,7 @@ const AIAssistant = () => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
   
-  const GEMINI_API_KEY = "AlzaSyBlJUOTlP5LJgpGrsGxc5EH4rbfmCK62qQ";
+  const GEMINI_API_KEY = "AIzaSyBlJUOTlP5LJgpGrsGxc5EH4rbfmCK62qQ";
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
