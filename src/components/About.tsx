@@ -24,10 +24,10 @@ const About = () => {
                 <h3 className="text-2xl font-bold text-primary">Personal Bio</h3>
               </div>
               <p className="text-muted-foreground leading-relaxed">
-                Motivated and detail-oriented Software Engineering student at Bahria University Karachi with a passion for coding, system customization, and building creative solutions. Skilled in multiple programming languages including C++, Java, Python, and JavaScript, with hands-on experience developing academic and personal projects ranging from a paint application to AI-based assistants.
+                Motivated and detail-oriented Software Engineering student at Bahria University Karachi with a passion for full-stack web development and building modern, scalable applications. Proficient in React, TypeScript, Next.js, and Vite for frontend development, with expertise in Tailwind CSS and Bootstrap for responsive UI design. Experienced in backend technologies including Supabase, API development, SQL databases, and Edge Functions.
               </p>
               <p className="text-muted-foreground leading-relaxed mt-4">
-                Known for combining problem-solving with creativity, and for continuously learning new technologies to stay ahead. A team player with strong adaptability, discipline, and a drive to grow into a professional full-stack developer.
+                Strong foundation in multiple programming languages including C++, Java, Python, and JavaScript. Skilled in version control with Git/GitHub, deployment with Vercel, and development tools like VS Code and Postman. Known for combining problem-solving with creativity, continuously learning cutting-edge technologies, and delivering production-ready applications. A team player with strong adaptability, discipline, and a drive to excel as a professional full-stack developer.
               </p>
             </CardContent>
           </Card>
@@ -45,7 +45,7 @@ const About = () => {
                 <div className="border-l-4 border-brand-sky pl-6">
                   <h4 className="text-xl font-semibold text-primary">Bachelors in Software Engineering</h4>
                   <p className="text-brand-sky font-medium">Bahria University Karachi</p>
-                  <p className="text-muted-foreground">Expected 2030</p>
+                  <p className="text-muted-foreground">Expected 2028</p>
                   <p className="text-muted-foreground mt-2">
                     Comprehensive curriculum covering software development, algorithms, database systems, 
                     web technologies, and modern programming paradigms.

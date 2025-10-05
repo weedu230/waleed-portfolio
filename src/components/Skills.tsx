@@ -16,13 +16,13 @@ const Skills = () => {
       title: "Programming Languages",
       icon: Code2,
       color: "brand-sky",
-      skills: ["C", "C++", "C#", "Java", "Python", "JavaScript"]
+      skills: ["C", "C++", "C#", "Java", "Python", "JavaScript", "TypeScript", "SQL"]
     },
     {
       title: "Web Technologies",
       icon: Globe,
       color: "brand-orange",
-      skills: ["HTML", "CSS", "React", "Next.js", "Bootstrap"]
+      skills: ["HTML", "CSS", "React", "Next.js", "Vite", "Bootstrap", "Tailwind CSS"]
     },
     {
       title: "Concepts & Architecture",
@@ -34,13 +34,13 @@ const Skills = () => {
       title: "Development Tools",
       icon: Settings,
       color: "brand-orange",
-      skills: ["Git", "GitHub", "GitLab", "VS Code", "Visual Studio", "NetBeans", "Postman"]
+      skills: ["Git", "GitHub", "GitLab", "VS Code", "Visual Studio", "NetBeans", "Postman", "Vercel"]
     },
     {
       title: "Database & Backend",
       icon: Database,
       color: "brand-sky",
-      skills: ["SQL", "Database Design", "API Development", "System Design"]
+      skills: ["SQL", "Supabase", "Edge Functions", "Database Design", "API Development", "System Design"]
     },
     {
       title: "Productivity Suite",
