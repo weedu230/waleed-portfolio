@@ -1,9 +1,16 @@
 import { Card, CardContent } from '@/components/ui/card';
-import { GraduationCap, User } from 'lucide-react';
+import { GraduationCap, User, Code, Rocket, Users, Zap } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const About = () => {
   const [ref, isVisible] = useScrollAnimation(0.2);
+
+  const highlights = [
+    { icon: Code, text: "Full-Stack Developer" },
+    { icon: Rocket, text: "React & Next.js Expert" },
+    { icon: Zap, text: "Fast Learner" },
+    { icon: Users, text: "Team Player" },
+  ];
 
   return (
     <section id="about" className="py-20 bg-secondary/20" ref={ref}>
@@ -21,14 +28,43 @@ const About = () => {
                 <div className="w-12 h-12 bg-brand-sky/10 rounded-full flex items-center justify-center mr-4 hover-pulse">
                   <User className="w-6 h-6 text-brand-sky skill-icon" />
                 </div>
-                <h3 className="text-2xl font-bold text-primary">Personal Bio</h3>
+                <h3 className="text-2xl font-bold text-primary">Who I Am</h3>
               </div>
-              <p className="text-muted-foreground leading-relaxed">
-                Motivated and detail-oriented Software Engineering student at Bahria University Karachi with a passion for full-stack web development and building modern, scalable applications. Proficient in React, TypeScript, Next.js, and Vite for frontend development, with expertise in Tailwind CSS and Bootstrap for responsive UI design. Experienced in backend technologies including Supabase, API development, SQL databases, and Edge Functions.
+              
+              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                Software Engineering student passionate about <span className="text-brand-sky font-semibold">building scalable web apps</span> that solve real problems.
               </p>
-              <p className="text-muted-foreground leading-relaxed mt-4">
-                Strong foundation in multiple programming languages including C++, Java, Python, and JavaScript. Skilled in version control with Git/GitHub, deployment with Vercel, and development tools like VS Code and Postman. Known for combining problem-solving with creativity, continuously learning cutting-edge technologies, and delivering production-ready applications. A team player with strong adaptability, discipline, and a drive to excel as a professional full-stack developer.
-              </p>
+
+              <ul className="space-y-3">
+                <li className="flex items-center gap-3 text-muted-foreground">
+                  <div className="w-2 h-2 bg-brand-sky rounded-full"></div>
+                  Proficient in React, TypeScript, Next.js & Tailwind
+                </li>
+                <li className="flex items-center gap-3 text-muted-foreground">
+                  <div className="w-2 h-2 bg-brand-orange rounded-full"></div>
+                  Backend: Supabase, APIs, SQL, Edge Functions
+                </li>
+                <li className="flex items-center gap-3 text-muted-foreground">
+                  <div className="w-2 h-2 bg-brand-sky rounded-full"></div>
+                  Languages: C++, Java, Python, JavaScript
+                </li>
+                <li className="flex items-center gap-3 text-muted-foreground">
+                  <div className="w-2 h-2 bg-brand-orange rounded-full"></div>
+                  Tools: Git, VS Code, Postman, Vercel
+                </li>
+              </ul>
+
+              <div className="flex flex-wrap gap-3 mt-6">
+                {highlights.map((item, index) => {
+                  const Icon = item.icon;
+                  return (
+                    <div key={index} className="flex items-center gap-2 px-3 py-2 bg-brand-sky/10 rounded-full text-sm text-brand-sky border border-brand-sky/20">
+                      <Icon className="w-4 h-4" />
+                      {item.text}
+                    </div>
+                  );
+                })}
+              </div>
             </CardContent>
           </Card>
 
@@ -41,33 +77,23 @@ const About = () => {
                 </div>
                 <h3 className="text-2xl font-bold text-primary">Education</h3>
               </div>
-              <div className="space-y-6">
-                <div className="border-l-4 border-brand-sky pl-6">
-                  <h4 className="text-xl font-semibold text-primary">Bachelors in Software Engineering</h4>
-                  <p className="text-brand-sky font-medium">Bahria University Karachi</p>
-                  <p className="text-muted-foreground">Expected 2028</p>
-                  <p className="text-muted-foreground mt-2">
-                    Comprehensive curriculum covering software development, algorithms, database systems, 
-                    web technologies, and modern programming paradigms.
-                  </p>
+              <div className="space-y-5">
+                <div className="border-l-4 border-brand-sky pl-5">
+                  <h4 className="text-lg font-semibold text-primary">BS Software Engineering</h4>
+                  <p className="text-brand-sky font-medium text-sm">Bahria University Karachi</p>
+                  <p className="text-muted-foreground text-sm">Expected 2028</p>
                 </div>
 
-                <div className="border-l-4 border-brand-orange pl-6">
-                  <h4 className="text-xl font-semibold text-primary">Intermediate (Pre-Engineering)</h4>
-                  <p className="text-brand-orange font-medium">Bahria College Karsaz Karachi</p>
-                  <p className="text-muted-foreground">Grade: A</p>
-                  <p className="text-muted-foreground mt-2">
-                    Pre-Engineering program with focus on Mathematics, Physics, and Chemistry.
-                  </p>
+                <div className="border-l-4 border-brand-orange pl-5">
+                  <h4 className="text-lg font-semibold text-primary">Intermediate (Pre-Engineering)</h4>
+                  <p className="text-brand-orange font-medium text-sm">Bahria College Karsaz</p>
+                  <p className="text-muted-foreground text-sm">Grade: A</p>
                 </div>
 
-                <div className="border-l-4 border-brand-sky pl-6">
-                  <h4 className="text-xl font-semibold text-primary">Matriculation (Biology, General)</h4>
-                  <p className="text-brand-sky font-medium">Bahria College Karsaz Karachi</p>
-                  <p className="text-muted-foreground">Grade: A+</p>
-                  <p className="text-muted-foreground mt-2">
-                    Secondary School Certificate with Biology and General Science.
-                  </p>
+                <div className="border-l-4 border-brand-sky pl-5">
+                  <h4 className="text-lg font-semibold text-primary">Matriculation</h4>
+                  <p className="text-brand-sky font-medium text-sm">Bahria College Karsaz</p>
+                  <p className="text-muted-foreground text-sm">Grade: A+</p>
                 </div>
               </div>
             </CardContent>
