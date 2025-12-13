@@ -10,7 +10,8 @@ import {
   Globe, 
   MessageSquare,
   Hospital,
-  FileText
+  FileText,
+  Navigation
 } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
@@ -106,6 +107,17 @@ const Portfolio = () => {
       color: "brand-sky",
       category: "Enterprise Application",
       githubUrl: "https://github.com/weedu230/hospital-management-system"
+    },
+    {
+      title: "STANS",
+      icon: Navigation,
+      tech: "Graph Algorithms",
+      description: "An intelligent navigation system utilizing graph algorithms to compute optimal routes considering real-time traffic conditions, blockades, and distance metrics.",
+      color: "brand-orange",
+      category: "Navigation System",
+      githubUrl: "https://github.com/weedu230/STANS",
+      liveUrl: "https://sstans.vercel.app/",
+      isLiveProject: true
     }
   ];
 
