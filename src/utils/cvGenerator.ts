@@ -277,7 +277,7 @@ export const generateCV = async () => {
         new Paragraph({
           children: [
             new TextRun({
-              text: "STANS – Smart Traffic Navigation System (Web Application)",
+              text: "STANS – Student Academic Navigation System (Web Application)",
               bold: true,
               size: 18,
             }),
@@ -286,23 +286,23 @@ export const generateCV = async () => {
         new Paragraph({
           children: [
             new TextRun({
-              text: "• Designed and developed latform to assist in traffic navigation",
+              text: "• Designed and developed an academic support platform to assist students with structured academic navigation",
               size: 16,
-            }),
-          ],
-        }),
-        new Paragraph({
-          children: [
-            text: "•  GitHub: github.com/weedu230/STANS | Live: https://sstans.vercel.app/",
-              size: 16,
-              color: "2E74B5",
             }),
           ],
         }),
         new Paragraph({
           children: [
             new TextRun({
-              text: "• Focused on usability, performance, and real-world traffic flows",
+              text: "• Implemented a clean, user-focused interface with scalable architecture",
+              size: 16,
+            }),
+          ],
+        }),
+        new Paragraph({
+          children: [
+            new TextRun({
+              text: "• Focused on usability, performance, and real-world academic workflows",
               size: 16,
             }),
           ],
