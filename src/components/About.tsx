@@ -1,16 +1,10 @@
 import { Card, CardContent } from '@/components/ui/card';
-import { GraduationCap, User, Code, Rocket, Users, Zap } from 'lucide-react';
+import { GraduationCap, User } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const About = () => {
   const [ref, isVisible] = useScrollAnimation(0.2);
 
-  const highlights = [
-    { icon: Code, text: "Full-Stack Developer" },
-    { icon: Rocket, text: "React & Next.js Expert" },
-    { icon: Zap, text: "Fast Learner" },
-    { icon: Users, text: "Team Player" },
-  ];
 
   return (
     <section id="about" className="py-20 bg-secondary/20" ref={ref}>
@@ -54,17 +48,6 @@ const About = () => {
                 </li>
               </ul>
 
-              <div className="flex flex-wrap gap-3 mt-6">
-                {highlights.map((item, index) => {
-                  const Icon = item.icon;
-                  return (
-                    <div key={index} className="flex items-center gap-2 px-3 py-2 bg-brand-sky/10 rounded-full text-sm text-brand-sky border border-brand-sky/20">
-                      <Icon className="w-4 h-4" />
-                      {item.text}
-                    </div>
-                  );
-                })}
-              </div>
             </CardContent>
           </Card>
 
