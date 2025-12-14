@@ -26,7 +26,7 @@ const About = () => {
               </div>
               
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                Software Engineering student focused on <span className="text-brand-sky font-semibold">engineering high-impact digital products</span> that scale in real-world environments.
+                Software Engineering student focused on <span className="text-brand-sky font-semibold">engineering high-impact digital products</span> that scale in real-world environments. I build real digital products — not just sample sites. Web, desktop, and mobile apps that solve real problems. I focus on performance, clean code, and real-world value.
               </p>
 
               <ul className="space-y-3">
