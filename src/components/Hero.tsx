@@ -52,9 +52,15 @@ const Hero = () => {
             <span className="text-3xl md:text-4xl text-gradient block mt-2 typing-animation">(Weedu)</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8">
-            Motivated Software Engineering Student | Future Full-Stack Developer
+          <p className="text-xl md:text-2xl text-muted-foreground mb-4">
+            Motivated Software Engineering Student | Software Developer
           </p>
+          
+          <div className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto space-y-1">
+            <p>I build real digital products — not just sample sites.</p>
+            <p>Web, desktop, and mobile apps that solve real problems.</p>
+            <p>I focus on performance, clean code, and real-world value.</p>
+          </div>
           
           {/* Animated Role Text */}
           <div className="mb-12">
