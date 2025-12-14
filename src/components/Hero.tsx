@@ -1,8 +1,12 @@
 import { Button } from '@/components/ui/button';
-import heroPortrait from '@/assets/weedu-portrait.jpg';
+import { useTheme } from 'next-themes';
+import heroPortraitDark from '@/assets/weedu-portrait.jpg';
+import heroPortraitLight from '@/assets/weedu-portrait-light.jpg';
 import ParticleBackground from './ParticleBackground';
 
 const Hero = () => {
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme === 'dark';
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -24,11 +28,18 @@ const Hero = () => {
         <div className="animate-fade-in">
           {/* Profile Image */}
           <div className="mb-8 relative inline-block mt-8">
-            <div className="w-64 h-64 mx-auto rounded-full overflow-hidden border-4 border-brand-sky shadow-lg animate-profile-float">
+            <div className="w-64 h-64 mx-auto rounded-full overflow-hidden border-4 border-brand-sky shadow-lg animate-profile-float relative">
+              {/* Dark mode image */}
               <img 
-                src="/lovable-uploads/a43da1fd-a9cc-4560-a312-4a67b8abb279.png" 
+                src={heroPortraitDark}
                 alt="Muhammad Waleed Ahmed (Weedu)" 
-                className="w-full h-full object-cover"
+                className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-700 ease-in-out ${isDark ? 'opacity-100' : 'opacity-0'}`}
+              />
+              {/* Light mode image */}
+              <img 
+                src={heroPortraitLight}
+                alt="Muhammad Waleed Ahmed (Weedu)" 
+                className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-700 ease-in-out ${isDark ? 'opacity-0' : 'opacity-100'}`}
               />
             </div>
             <div className="absolute -bottom-2 -right-2 w-16 h-16 bg-brand-orange rounded-full flex items-center justify-center text-white text-2xl font-bold">
