@@ -32,25 +32,25 @@ const About = () => {
               </div>
               
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                Software Engineering student passionate about <span className="text-brand-sky font-semibold">building scalable web apps</span> that solve real problems.
+                Software Engineering student focused on <span className="text-brand-sky font-semibold">engineering high-impact digital products</span> that scale in real-world environments.
               </p>
 
               <ul className="space-y-3">
                 <li className="flex items-center gap-3 text-muted-foreground">
                   <div className="w-2 h-2 bg-brand-sky rounded-full"></div>
-                  Proficient in React, TypeScript, Next.js & Tailwind
+                  Build end-to-end applications across web, desktop, and mobile platforms
                 </li>
                 <li className="flex items-center gap-3 text-muted-foreground">
                   <div className="w-2 h-2 bg-brand-orange rounded-full"></div>
-                  Backend: Supabase, APIs, SQL, Edge Functions
+                  Translate ideas into reliable, user-focused solutions, not just prototypes
                 </li>
                 <li className="flex items-center gap-3 text-muted-foreground">
                   <div className="w-2 h-2 bg-brand-sky rounded-full"></div>
-                  Languages: C++, Java, Python, JavaScript
+                  Emphasize clean architecture, performance, and scalability
                 </li>
                 <li className="flex items-center gap-3 text-muted-foreground">
                   <div className="w-2 h-2 bg-brand-orange rounded-full"></div>
-                  Tools: Git, VS Code, Postman, Vercel
+                  Comfortable working across the full development lifecycle, from concept to deployment
                 </li>
               </ul>
 
