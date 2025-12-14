@@ -1,6 +1,5 @@
 import { Button } from '@/components/ui/button';
 import { useTheme } from 'next-themes';
-import heroPortraitDark from '@/assets/weedu-portrait.jpg';
 import heroPortraitLight from '@/assets/weedu-portrait-light.jpg';
 import ParticleBackground from './ParticleBackground';
 
@@ -31,7 +30,7 @@ const Hero = () => {
             <div className="w-64 h-64 mx-auto rounded-full overflow-hidden border-4 border-brand-sky shadow-lg animate-profile-float relative">
               {/* Dark mode image */}
               <img 
-                src={heroPortraitDark}
+                src="/lovable-uploads/a43da1fd-a9cc-4560-a312-4a67b8abb279.png"
                 alt="Muhammad Waleed Ahmed (Weedu)" 
                 className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-700 ease-in-out ${isDark ? 'opacity-100' : 'opacity-0'}`}
               />
