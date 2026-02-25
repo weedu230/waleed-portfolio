@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { downloadCV } from '@/utils/cvGenerator';
@@ -90,6 +91,12 @@ const Navigation = () => {
             >
               Contact
             </button>
+            <Link
+              to="/projects"
+              className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 dark:border-brand-orange/50 dark:hover:border-brand-orange rounded-md px-3 py-2"
+            >
+              Projects
+            </Link>
           </div>
 
           <div className="flex items-center space-x-4">
@@ -154,6 +161,13 @@ const Navigation = () => {
               >
                 Contact
               </button>
+              <Link
+                to="/projects"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-foreground hover:text-brand-sky transition-colors border border-transparent hover:border-brand-sky/30 dark:border-brand-orange/50 dark:hover:border-brand-orange rounded-md px-3 py-2 text-left"
+              >
+                Projects
+              </Link>
               <Button 
                 variant="outline" 
                 className="border-brand-sky text-brand-sky hover:bg-brand-sky hover:text-white transition-all mt-2"
