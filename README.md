@@ -21,3 +21,4 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
+![Alt](https://repobeats.axiom.co/api/embed/06261eda5bad1b8f3a525ed7cec687fe485c50d1.svg "Repobeats analytics image")
